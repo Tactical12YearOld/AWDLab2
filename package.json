@@ -19,6 +19,10 @@
     "http-errors": "~1.6.3",
     "jquery": "^3.3.1",
     "morgan": "~1.9.1",
+<<<<<<< HEAD
     "popper.js": "^1.14.3"
+=======
+	"popper.js": "^2.4.4"
+>>>>>>> cd104aeb54201005d83a6b26a8e5b9f5e80ef66d
   }
 }
