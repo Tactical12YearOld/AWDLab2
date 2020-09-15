@@ -1,4 +1,7 @@
 /* GET blog page */
-module.exports.blog = function(req, res){
-  res.render('blog', {title: 'Express' });
+module.exports.blogList = function(req, res){
+  res.render('blogList');
 };
+module.exports.blogAdd = function(req res){
+	res.render('blodAdd');
+}
