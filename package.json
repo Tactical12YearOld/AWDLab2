@@ -10,7 +10,6 @@
     "npm": "~6.14.5"
   },
   "dependencies": {
-    "popperjs/core": "^2.4.4",
     "bootstrap": "^4.1.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
