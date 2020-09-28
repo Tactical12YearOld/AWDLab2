@@ -10,7 +10,7 @@
     "npm": "~6.14.5"
   },
   "dependencies": {
-    "@popperjs/core": "^2.4.4",
+    "popperjs/core": "^2.4.4",
     "bootstrap": "^4.1.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
@@ -20,6 +20,7 @@
     "jquery": "^3.3.1",
     "mongoose": "^5.10.7",
     "morgan": "~1.9.1",
-    "popper.js": "^2.4.4"
+    "popper.js": "^2.4.4",
+    "readline": "0.0.x"
   }
 }
