@@ -7,11 +7,30 @@
   </head>
   <body>
 	<% include ./partials/nav %>
-	  <div class="container">
-		<p></p>
-    	<h4>Blog List</h4>
-    	<p>Under Construction</p>
-	</div>
+	<% for(var i = 0; i <= 3; i++) { %>
+		<p>
+			<div class="card border-primary" style="width: 50%">
+			<div class="card-header">
+			</div>
+			<div class="card-body">
+				<h5 class="card-title"> <%blogEntries[i].blogTitle%></h5>
+				<h6 class="card-subtitle"><%blogEntries[i].dateCreated%></h6>
+				<p class="card-text:last-child"> <%blogEntries[i].blogText%></p>
+			</div>
+			<div class="card-footer">
+				<div class="col-sm">
+					<ul class="nav justify-content-end nav-pills card-header-pills">
+						<li class="nav-item">
+							<a class="nav-link" href="/blogEdit"> <i class="fas fa-edit"></i></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/blogDelete"> <i class="fas fa-trash-alt"></i></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			</div>
+		</p>
 </body>
 <script src='/javascripts/jquery-3.5.1.min.js'></script>
 <script src='bootstrap/js/bootstrap.min.js'></script>
