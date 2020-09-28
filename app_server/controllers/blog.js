@@ -16,15 +16,15 @@ module.exports.blogList = function(req, res){
     blogEntries: [{
       blogTitle: 'Title1',
       blogText: 'Text1',
-      dateCreated: todaysDate
+      dateCreated: convertDate(todaysDate)
     },{
       blogTitle: 'Title2',
       blogText: 'Text2',
-      dateCreated: todaysDate
+      dateCreated: convertDate(todaysDate)
     },{
       blogTitle: 'Title3',
       blogText: 'Text3',
-      dateCreated: todaysDate
+      dateCreated: convertDate(todaysDate)
     }]
   });
 };
