@@ -14,6 +14,16 @@ mongoose.connection.on('error', function (err) {
 mongoose.connection.on('disconnected', function () {
     console.log('Mongoose disconnected');
 });
+var readLine = require ("readline");
+if (process.platform === win32){
+    var r1 = readLine.createInerface ({
+        input: process.stdin,
+        output: process.stdout
+    });
+    r1.on ("SIGINT", function (){
+        process.emit ("SIGINT");
+    });
+}
 // Closes (disconnects) from Mongoose DB upon shutdown
 gracefulShutdown = function (msg, callback) {
     mongoose.connection.close(function () {
@@ -32,3 +42,4 @@ process.on('SIGINT', function() {
     gracefulShutdown('app termination', function () {
       process.exit(0);
   }); });
+require('./blogs');
