@@ -53,7 +53,7 @@ module.exports.blogReadOne = function(req, res) {
             sendJSONresponse(res, 404, err);
             return;
           }
-          console.log(blog);
+          console.log(blogs);
           sendJSONresponse(res, 200, blogs);
         });
     } 
