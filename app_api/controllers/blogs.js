@@ -1,6 +1,6 @@
 /* GET blog page */
 var mongoose = require('mongoose');
-var blogModel = mongoose.model('blogs');
+var blogModel = mongoose.model('Blogs');
 
 var sendJSONresponse = function(res, status, content) {
     res.status(status);
