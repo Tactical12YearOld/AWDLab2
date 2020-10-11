@@ -36,7 +36,7 @@ module.exports.blogList = function(req, res){
     }]
   });
 };
-module.exports.blogReadOne = function(req, res) {
+module.exports.blogReadOne = function(req, res){
     console.log('Finding blog details', req.params);
     if (req.params && req.params.blogid)
     {

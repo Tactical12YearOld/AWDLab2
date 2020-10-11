@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const ctrlBlog = require('../controllers/blogs')
+const ctrlBlog = require('../controllers/blogs');
 
 //handles request methods
 router.get('/blogs', ctrlBlog.blogList);
