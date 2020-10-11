@@ -4,3 +4,5 @@ var blogSchema = new mongoose.Schema({
     blogText: {type: String, "default": "Empty Blog", required: true},
     dateCreated: {type: Date,"default": Date.now}
 });
+//compiling schema into models
+mongoose.model('Blog', blogSchema);
