@@ -40,9 +40,9 @@ module.exports.blogReadOne = function(req, res) {
     console.log('Finding blog details', req.params);
     if (req.params && req.params.blogid)
     {
-        blogModel.findById(req.params.blogid).exec(function(err, blog) 
+        blogModel.findById(req.params.blogid).exec(function(err, blogs) 
         {
-          if (!blog) 
+          if (!blogs) 
           {
             sendJSONresponse(res, 404, {"message" : "blogid not found"});
             return;
@@ -54,7 +54,7 @@ module.exports.blogReadOne = function(req, res) {
             return;
           }
           console.log(blog);
-          sendJSONresponse(res, 200, blog);
+          sendJSONresponse(res, 200, blogs);
         });
     } 
     else 
