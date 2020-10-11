@@ -5,4 +5,4 @@ var blogSchema = new mongoose.Schema({
     dateCreated: {type: Date,"default": Date.now}
 });
 //compiling schema into models
-mongoose.model('Blogs', blogSchema);
+mongoose.model('blogs', blogSchema);
