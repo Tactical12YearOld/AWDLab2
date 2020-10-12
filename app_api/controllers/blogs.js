@@ -31,7 +31,7 @@ function convertDate(date) {
 }
 module.exports.blogList = function(req, res){
   blogs = buildBlogList(req, res);
-  endJSONresponse(res, 200, blogs);
+  sendJSONresponse(res, 200, blogs);
 };
 
 var buildBlogList = function(req, res) {
