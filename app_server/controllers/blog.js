@@ -1,4 +1,5 @@
 var request = require('request');
+const Request = require('request/request');
 var apiOptions = { 
   server : "http://127.0.0.1:27017"
 };
@@ -30,21 +31,19 @@ function convertDate(date) {
          + ':' + (ssChars[1]?ss:"0"+ssChars[0]) + ':' + (mmmChars[1]?mmm:"0"+mmmChars[0]) + 'Z';
 }
 module.exports.blogList = function(req, res){
-  res.render('blogList', {
-    blogEntries: [{
-      blogTitle: 'Title1',
-      blogText: 'Text1',
-      dateCreated: convertDate(todaysDate)
-    },{
-      blogTitle: 'Title2',
-      blogText: 'Text2',
-      dateCreated: convertDate(todaysDate)
-    },{
-      blogTitle: 'Title3',
-      blogText: 'Text3',
-      dateCreated: convertDate(todaysDate)
-    }]
-  });
+  var requestOptions, path;
+  path = '/api/blogs';
+  requestOptions = {
+    url: apiOptions.server + path,
+    method : "GET",
+    json : {}
+  };
+  request(
+    requestOptions,
+    function(err, response, body) {
+      renderBlogList(req, res, body);
+    }
+  );
 };
 module.exports.blogAdd = function(req, res){
 	res.render('blogAdd');
