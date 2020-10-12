@@ -2,7 +2,7 @@ var request = require('request');
 var apiOptions = { 
   server : "http://127.0.0.1:27017"
 };
-if (Process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
   apiOptions.server = "http://54.89.191.207";
 }
 
