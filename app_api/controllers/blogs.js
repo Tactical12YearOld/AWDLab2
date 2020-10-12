@@ -80,7 +80,7 @@ module.exports.blogAdd = function(req, res){
     blogModel.create({
         blogTitle: req.body.blogTitle,
         blogText: req.body.blogText,
-        dateCreated: convertDate(todaysDate)
+        dateCreated: req.body.dateCreated
     }, function(err, blogs) {
         if (err){
             sendJSONresponse(res, 400, err);
