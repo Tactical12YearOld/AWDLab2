@@ -29,16 +29,16 @@ function convertDate(date) {
          + 'T' + (hhChars[1]?hh:"0"+hhChars[0]) + ':' + (mChars[1]?m:"0"+mChars[0]) 
          + ':' + (ssChars[1]?ss:"0"+ssChars[0]) + ':' + (mmmChars[1]?mmm:"0"+mmmChars[0]) + 'Z';
 }
-var buildBlogList = function(req, res) {
+var buildBlogList = function(req, res, blog) {
   var blogs = [];
-  forEach(function(doc) {
+  blog.forEach(function(doc) {
     blogs.push({
       _id: doc.obj._id,
       blogTitle: doc.obj.blogTitle,
       blogText: doc.obj.blogText,
       dateCreated: doc.obj.dateCreated
     });
-  })
+  });
   return blogs;
 };
 
