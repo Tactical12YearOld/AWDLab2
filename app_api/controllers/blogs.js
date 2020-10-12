@@ -73,7 +73,6 @@ module.exports.blogReadOne = function(req, res){
 module.exports.blogAdd = function(req, res){
     console.log(req.body);
     blogModel.create({
-        _id: rec.body._id,
         blogTitle: req.body.blogTitle,
         blogText: req.body.blogText,
         dateCreated: req.body.dateCreated
