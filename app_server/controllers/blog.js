@@ -29,11 +29,6 @@ function convertDate(date) {
          + 'T' + (hhChars[1]?hh:"0"+hhChars[0]) + ':' + (mChars[1]?m:"0"+mChars[0]) 
          + ':' + (ssChars[1]?ss:"0"+ssChars[0]) + ':' + (mmmChars[1]?mmm:"0"+mmmChars[0]) + 'Z';
 }
-module.exports.blogList = function(req, res){
-  blogs = buildBlogList(req, res);
-      sendJSONresponse(res, 200, blogs);
-};
-
 var buildBlogList = function(req, res) {
   var blogs = [];
   results.forEach(function(doc) {
@@ -43,8 +38,13 @@ var buildBlogList = function(req, res) {
       blogText: doc.obj.blogText,
       dateCreated: doc.obj.dateCreated
     });
-  });
+  })
   return blogs;
+};
+
+module.exports.blogList = function(req, res){
+  blogs = buildBlogList(req, res);
+      sendJSONresponse(res, 200, blogs);
 };
 module.exports.blogAdd = function(req, res){
 	res.render('blogAdd');
