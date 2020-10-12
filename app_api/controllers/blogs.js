@@ -34,7 +34,7 @@ module.exports.blogList = function(req, res){
       sendJSONresponse(res, 200, blogs);
 };
 
-var buildBlogList = function(req, res, results) {
+var buildBlogList = function(req, res, out) {
   var blogs = [];
   out.forEach(function(doc) {
     blogs.push({
