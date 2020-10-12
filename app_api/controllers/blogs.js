@@ -30,7 +30,20 @@ function convertDate(date) {
          + ':' + (ssChars[1]?ss:"0"+ssChars[0]) + ':' + (mmmChars[1]?mmm:"0"+mmmChars[0]) + 'Z';
 }
 module.exports.blogList = function(req, res){
-  blogModel.find().all();
+  blogModel
+          .find()
+          .exec(function(err, blog) {
+            if (!blog) {
+              sendJSONresponse(res, 400, {"message": "no blogs found"});
+            return;
+            } else if(err) {
+              console.log(err);
+              sendJSONresponse(res,404, err);
+              return;
+            }
+            console.log(blog);
+            sendJSONresponse(res, 200, blog);
+          });
 };
 
 module.exports.blogReadOne = function(req, res){
