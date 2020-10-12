@@ -123,5 +123,24 @@ module.exports.blogEdit = function(req, res){
       );
 };
 module.exports.blogDelete = function(req, res){
-  res.render('blogDelete');
+    var blogid = req.params.blogid;
+    if (blogid) {
+      blogModel
+        .findByIdAndRemove(blogid)
+        .exec(
+          function(err, blogs) {
+            if (err) {
+              console.log(err);
+              sendJSONresponse(res, 404, err);
+              return;
+            }
+            console.log("blog id " + blogid + " deleted");
+            sendJSONresponse(res, 204, null);
+          }
+      );
+    } else {
+      sendJSONresponse(res, 404, {
+        "message": "No blogid"
+      });
+    }
 };
