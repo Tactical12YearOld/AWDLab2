@@ -30,18 +30,52 @@ function convertDate(date) {
          + ':' + (ssChars[1]?ss:"0"+ssChars[0]) + ':' + (mmmChars[1]?mmm:"0"+mmmChars[0]) + 'Z';
 }
 module.exports.blogList = function(req, res){
-  console.log('Finding blog details');
-      blogModel.exec(function(err, blogs) 
-      {
-      if (err) 
-        {
-          console.log(err);
-          sendJSONresponse(res, 404, err);
-          return;
-        }
-        console.log(blogs);
-        sendJSONresponse(res, 200, blogs);
-      }); 
+  var lng = parseFloat(req.query.lng);
+  var lat = parseFloat(req.query.lat);
+  var maxDistance = parseFloat(req.query.maxDistance);
+  var point = {
+    type: "Point",
+    coordinates: [lng, lat]
+  };
+  var geoOptions = {
+    spherical: true,
+    maxDistance: theEarth.getRadsFromDistance(maxDistance),
+    num: 10
+  };
+  if (!lng || !lat || !maxDistance) {
+    console.log('locationsListByDistance missing params');
+    sendJSONresponse(res, 404, {
+      "message": "lng, lat and maxDistance query parameters are all required"
+    });
+    return;
+  }
+  Loc.geoNear(point, geoOptions, function(err, results, stats) {
+    var locations;
+    console.log('Geo Results', results);
+    console.log('Geo stats', stats);
+    if (err) {
+      console.log('geoNear error:', err);
+      sendJSONresponse(res, 404, err);
+    } else {
+      locations = buildLocationList(req, res, results, stats);
+      sendJSONresponse(res, 200, locations);
+    }
+  });
+};
+
+var buildLocationList = function(req, res, results, stats) {
+  var locations = [];
+  results.forEach(function(doc) {
+    locations.push({
+      distance: theEarth.getDistanceFromRads(doc.dis),
+      name: doc.obj.name,
+      address: doc.obj.address,
+      rating: doc.obj.rating,
+      facilities: doc.obj.facilities,
+      _id: doc.obj._id
+    });
+  });
+  return locations;
 };
 module.exports.blogReadOne = function(req, res){
     console.log('Finding blog details', req.params);
