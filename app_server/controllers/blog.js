@@ -31,7 +31,7 @@ function convertDate(date) {
 }
 var buildBlogList = function(req, res) {
   var blogs = [];
-  results.forEach(function(doc) {
+  forEach(function(doc) {
     blogs.push({
       _id: doc.obj._id,
       blogTitle: doc.obj.blogTitle,
