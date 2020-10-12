@@ -30,13 +30,13 @@ function convertDate(date) {
          + ':' + (ssChars[1]?ss:"0"+ssChars[0]) + ':' + (mmmChars[1]?mmm:"0"+mmmChars[0]) + 'Z';
 }
 module.exports.blogList = function(req, res){
-      blogs = buildBlogList(req, res);
+      blogs = buildBlogList(req, res, results);
       sendJSONresponse(res, 200, blogs);
 };
 
-var buildBlogList = function(req, res) {
+var buildBlogList = function(req, res, results) {
   var blogs = [];
-  blogs.forEach(function(doc) {
+  results.forEach(function(doc){
     blogs.push({
       _id: doc.obj._id,
       blogTitle: doc.obj.blogTitle,
