@@ -30,18 +30,8 @@ function convertDate(date) {
          + ':' + (ssChars[1]?ss:"0"+ssChars[0]) + ':' + (mmmChars[1]?mmm:"0"+mmmChars[0]) + 'Z';
 }
 module.exports.blogList = function(req, res){
-  
-  blogModel, function(err, results) {
-    var blogs;
-    console.log('Blog Results', results);
-    if (err) {
-      console.log('Blog error:', err);
-      sendJSONresponse(res, 404, err);
-    } else {
       blogs = buildBlogList(req, res, results);
       sendJSONresponse(res, 200, blogs);
-    }
-  };
 };
 
 var buildBlogList = function(req, res, results) {
