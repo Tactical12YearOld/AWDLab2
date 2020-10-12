@@ -30,21 +30,31 @@ function convertDate(date) {
          + ':' + (ssChars[1]?ss:"0"+ssChars[0]) + ':' + (mmmChars[1]?mmm:"0"+mmmChars[0]) + 'Z';
 }
 module.exports.blogList = function(req, res){
-  res.render('blogList', {
-    blogEntries: [{
-      blogTitle: 'Title1',
-      blogText: 'Text1',
-      dateCreated: convertDate(todaysDate)
-    },{
-      blogTitle: 'Title2',
-      blogText: 'Text2',
-      dateCreated: convertDate(todaysDate)
-    },{
-      blogTitle: 'Title3',
-      blogText: 'Text3',
-      dateCreated: convertDate(todaysDate)
-    }]
+  
+  blogModel, function(err, results) {
+    var blogs;
+    console.log('Blog Results', results);
+    if (err) {
+      console.log('geoNear error:', err);
+      sendJSONresponse(res, 404, err);
+    } else {
+      blogs = buildBlogList(req, res, results);
+      sendJSONresponse(res, 200, blogs);
+    }
+  };
+};
+
+var buildBlogList = function(req, res, results, stats) {
+  var blogs = [];
+  results.forEach(function(doc) {
+    blogs.push({
+      _id: doc.obj._id,
+      blogTitle: doc.obj.blogTitle,
+      blogText: doc.obj.blogText,
+      dateCreated: doc.obj.dateCreated
+    });
   });
+  return blogs;
 };
 module.exports.blogReadOne = function(req, res){
     console.log('Finding blog details', req.params);
