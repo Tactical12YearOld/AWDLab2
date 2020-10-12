@@ -30,7 +30,7 @@ function convertDate(date) {
          + ':' + (ssChars[1]?ss:"0"+ssChars[0]) + ':' + (mmmChars[1]?mmm:"0"+mmmChars[0]) + 'Z';
 }
 module.exports.blogList = function(req, res){
-      blogs = buildBlogList(req, res, out);
+      blogs = buildBlogList(req, res);
       sendJSONresponse(res, 200, blogs);
 };
 
