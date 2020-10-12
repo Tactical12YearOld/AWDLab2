@@ -30,21 +30,20 @@ function convertDate(date) {
          + ':' + (ssChars[1]?ss:"0"+ssChars[0]) + ':' + (mmmChars[1]?mmm:"0"+mmmChars[0]) + 'Z';
 }
 module.exports.blogList = function(req, res){
-  res.render('blogList', {
-    blogEntries: [{
-      blogTitle: 'Title1',
-      blogText: 'Text1',
-      dateCreated: convertDate(todaysDate)
-    },{
-      blogTitle: 'Title2',
-      blogText: 'Text2',
-      dateCreated: convertDate(todaysDate)
-    },{
-      blogTitle: 'Title3',
-      blogText: 'Text3',
-      dateCreated: convertDate(todaysDate)
-    }]
+  blogs = buildBlogList(req, res);
+      sendJSONresponse(res, 200, blogs);
+};
+
+var buildBlogList = function(req, res) {
+  var blogs = [];
+  results.forEach(function(doc) {
+    blogs.push({
+      blogTitle: doc.obj.blogTitle,
+      blogText: doc.obj.blogText,
+      _id: doc.obj._id
+    });
   });
+  return blogs;
 };
 module.exports.blogAdd = function(req, res){
 	res.render('blogAdd');
