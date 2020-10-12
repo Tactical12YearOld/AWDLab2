@@ -36,7 +36,7 @@ module.exports.blogList = function(req, res){
 
 var buildBlogList = function(req, res) {
   var tempblogs = [];
-  blog.forEach(function(doc) {
+  tempblog.forEach(function(doc) {
     tempblogs.push({
       _id: doc.obj._id,
       blogTitle: doc.obj.blogTitle,
