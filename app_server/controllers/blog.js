@@ -29,22 +29,22 @@ function convertDate(date) {
          + 'T' + (hhChars[1]?hh:"0"+hhChars[0]) + ':' + (mChars[1]?m:"0"+mChars[0]) 
          + ':' + (ssChars[1]?ss:"0"+ssChars[0]) + ':' + (mmmChars[1]?mmm:"0"+mmmChars[0]) + 'Z';
 }
-var buildBlogList = function(req, res, blog) {
-  var blogs = [];
-  blog.forEach(function(doc) {
-    blogs.push({
-      _id: doc.obj._id,
-      blogTitle: doc.obj.blogTitle,
-      blogText: doc.obj.blogText,
-      dateCreated: doc.obj.dateCreated
-    });
-  });
-  return blogs;
-};
-
 module.exports.blogList = function(req, res){
-  blogs = buildBlogList(req, res);
-      sendJSONresponse(res, 200, blogs);
+  res.render('blogList', {
+    blogEntries: [{
+      blogTitle: 'Title1',
+      blogText: 'Text1',
+      dateCreated: convertDate(todaysDate)
+    },{
+      blogTitle: 'Title2',
+      blogText: 'Text2',
+      dateCreated: convertDate(todaysDate)
+    },{
+      blogTitle: 'Title3',
+      blogText: 'Text3',
+      dateCreated: convertDate(todaysDate)
+    }]
+  });
 };
 module.exports.blogAdd = function(req, res){
 	res.render('blogAdd');
