@@ -30,40 +30,11 @@ function convertDate(date) {
          + ':' + (ssChars[1]?ss:"0"+ssChars[0]) + ':' + (mmmChars[1]?mmm:"0"+mmmChars[0]) + 'Z';
 }
 module.exports.blogList = function(req, res){
-  var lng = parseFloat(req.query.lng);
-  var lat = parseFloat(req.query.lat);
-  var maxDistance = parseFloat(req.query.maxDistance);
-  var point = {
-    type: "Point",
-    coordinates: [lng, lat]
-  };
-  var geoOptions = {
-    spherical: true,
-    maxDistance: theEarth.getRadsFromDistance(maxDistance),
-    num: 10
-  };
-  if (!lng || !lat || !maxDistance) {
-    console.log('locationsListByDistance missing params');
-    sendJSONresponse(res, 404, {
-      "message": "lng, lat and maxDistance query parameters are all required"
-    });
-    return;
-  }
-  blogModel.geoNear(point, geoOptions, function(err, results, stats) {
-    var blogs;
-    console.log('Geo Results', results);
-    console.log('Geo stats', stats);
-    if (err) {
-      console.log('geoNear error:', err);
-      sendJSONresponse(res, 404, err);
-    } else {
-      blogs = buildBlogList(req, res, results, stats);
-      sendJSONresponse(res, 200, locations);
-    }
-  });
+  blogs = buildBlogList(req, res, results);
+  endJSONresponse(res, 200, blogs);
 };
 
-var buildBlogList = function(req, res, results, stats) {
+var buildBlogList = function(req, res, results) {
   var blogs = [];
   results.forEach(function(doc) {
     blogs.push({
