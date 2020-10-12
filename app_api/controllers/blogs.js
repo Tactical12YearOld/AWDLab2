@@ -21,8 +21,7 @@ function convertDate(date) {
   var hhChars = hh.split('');
   var minutesChars = minutes.split('');
 
-  return yyyy + '-' + (mmChars[1]?mm:"0"+mmChars[0]) + '-' + (ddChars[1]?dd:"0"+ddChars[0]) + 
-        '-' + (hhChars[1]?hh:"0"+hhChars[0]) + ':' + (minutesChars[1]?minutes:"0"+minutesChars[0]);
+  return yyyy + '-' + (mmChars[1]?mm:"0"+mmChars[0]) + '-' + (ddChars[1]?dd:"0"+ddChars[0]);
 }
 module.exports.blogList = function(req, res){
   res.render('blogList', {
