@@ -30,23 +30,16 @@ function convertDate(date) {
          + ':' + (ssChars[1]?ss:"0"+ssChars[0]) + ':' + (mmmChars[1]?mmm:"0"+mmmChars[0]) + 'Z';
 }
 module.exports.blogList = function(req, res){
-    locations = buildLocationList(req, res, results, stats);
+    locations = buildLocationList(req, res);
     sendJSONresponse(res, 200, locations);
 };
 
-var buildLocationList = function(req, res, results, stats) {
-  var locations = [];
-  results.forEach(function(doc) {
-    locations.push({
-      distance: theEarth.getDistanceFromRads(doc.dis),
-      name: doc.obj.name,
-      address: doc.obj.address,
-      rating: doc.obj.rating,
-      facilities: doc.obj.facilities,
-      _id: doc.obj._id
-    });
-  });
-  return locations;
+var buildLocationList = function(req, res) {
+  var blogs = [];
+array.forEach(element => {
+  
+});
+  return blogs;
 };
 module.exports.blogReadOne = function(req, res){
     console.log('Finding blog details', req.params);
@@ -80,6 +73,7 @@ module.exports.blogReadOne = function(req, res){
 module.exports.blogAdd = function(req, res){
     console.log(req.body);
     blogModel.create({
+        _id: rec.body._id,
         blogTitle: req.body.blogTitle,
         blogText: req.body.blogText,
         dateCreated: req.body.dateCreated
