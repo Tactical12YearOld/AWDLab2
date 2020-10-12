@@ -71,7 +71,13 @@ module.exports.blogAdd = function(req, res){
         blogTitle: req.body.blogTitle,
         blogText: req.body.blogText,
         dateCreated: convertDate(todaysDate)
-    })
+    }, function(err, blogs) {
+        if (err){
+            sendJSONresponse(res, 400, err);
+        }else {
+            sendJSONresponse(res, 201, blogs);
+        }
+    });
 };
 module.exports.blogEdit = function(req, res){
   res.render('blogEdit');
