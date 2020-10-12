@@ -35,7 +35,7 @@ module.exports.blogList = function(req, res){
     var blogs;
     console.log('Blog Results', results);
     if (err) {
-      console.log('geoNear error:', err);
+      console.log('Blog error:', err);
       sendJSONresponse(res, 404, err);
     } else {
       blogs = buildBlogList(req, res, results);
