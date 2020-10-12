@@ -90,7 +90,37 @@ module.exports.blogAdd = function(req, res){
     });
 };
 module.exports.blogEdit = function(req, res){
-  res.render('blogEdit');
+    if (!req.params.blogid) {
+        sendJSONresponse(res, 404, {
+          "message": "Not found, blogid is required"
+        });
+        return;
+      }
+      blogModel
+        .findById(req.params.blogid)
+        .exec(
+          function(err, blogs) {
+            if (!blogs) {
+              sendJSONresponse(res, 404, {
+                "message": "blogid not found"
+              });
+              return;
+            } else if (err) {
+              sendJSONresponse(res, 400, err);
+              return;
+            }
+            blogs.blogTitle = req.body.blogTitle;
+            blogs.blogText = req.body.blogText;
+            blogs.dateCreated = req.body.dateCreated;
+            blogs.save(function(err, blogs) {
+              if (err) {
+                sendJSONresponse(res, 404, err);
+              } else {
+                sendJSONresponse(res, 200, blogs);
+              }
+            });
+          }
+      );
 };
 module.exports.blogDelete = function(req, res){
   res.render('blogDelete');
