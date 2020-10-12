@@ -31,14 +31,9 @@ function convertDate(date) {
 }
 module.exports.blogList = function(req, res){
   console.log('Finding blog details');
-      blogModel.find(blogid).exec(function(err, blogs) 
+      blogModel.exec(function(err, blogs) 
       {
-        if (!blogs) 
-        {
-          sendJSONresponse(res, 404, {"message" : "blogid not found"});
-          return;
-        } 
-        else if (err) 
+      if (err) 
         {
           console.log(err);
           sendJSONresponse(res, 404, err);
