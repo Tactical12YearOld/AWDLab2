@@ -38,9 +38,10 @@ var buildBlogList = function(req, res) {
   var blogs = [];
   results.forEach(function(doc) {
     blogs.push({
+      _id: doc.obj._id,
       blogTitle: doc.obj.blogTitle,
       blogText: doc.obj.blogText,
-      _id: doc.obj._id
+      dateCreated: doc.obj.dateCreated
     });
   });
   return blogs;
