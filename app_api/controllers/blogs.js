@@ -36,7 +36,7 @@ module.exports.blogList = function(req, res){
 
 var buildBlogList = function(req, res) {
   var blogs = [];
-  blogs.forEach(function(doc) {
+  blogsCopy.forEach(function(doc) {
     blogs.push({
       _id: doc.obj._id,
       blogTitle: doc.obj.blogTitle,
@@ -44,7 +44,7 @@ var buildBlogList = function(req, res) {
       dateCreated: doc.obj.dateCreated
     });
   });
-  return blogs;
+  return blogsCopy;
 };
 module.exports.blogReadOne = function(req, res){
     console.log('Finding blog details', req.params);
