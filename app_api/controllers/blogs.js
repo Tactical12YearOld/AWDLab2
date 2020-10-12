@@ -66,7 +66,12 @@ module.exports.blogReadOne = function(req, res){
     }
 };
 module.exports.blogAdd = function(req, res){
-	sendJSONresponse(res,200, {"status" : "success"});
+    console.log(req.body);
+    blogModel.create({
+        blogTitle: req.body.blogTitle,
+        blogText: req.body.blogText,
+        dateCreated: convertDate(todaysDate)
+    })
 };
 module.exports.blogEdit = function(req, res){
   res.render('blogEdit');
