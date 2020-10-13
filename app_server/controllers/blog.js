@@ -60,7 +60,7 @@ var renderListpage = function(req, res, responseBody){
   });
 }*/
 //his
-module.exports.list = function(req, res){
+/*module.exports.list = function(req, res){
   var requestOptions, path;
   path = '/api/blogs';
   requestOptions = { 
@@ -77,7 +77,7 @@ module.exports.list = function(req, res){
   );
 };
 
-/* Render the book list page */
+ Render the book list page 
 var renderListPage = function(req, res, responseBody){
   res.render('blog-list', {
       title: 'Blog List',
@@ -87,7 +87,7 @@ var renderListPage = function(req, res, responseBody){
       blogs: responseBody
   });
 };
-
+*/
 module.exports.blogAdd = function(req, res){
 	res.render('blogAdd');
 };
