@@ -4,7 +4,7 @@ const ctrlHome = require('../controllers/home');
 const ctrlBlog = require('../controllers/blog')
 /* GET home page. */
 router.get('/', ctrlHome.home);
-router.get('/blog/:blogid', ctrlBlogList);
+router.get('/blog/:blogid', ctrlBlog.blogList);
 router.get('/blogList', ctrlBlog.blogList);
 router.get('/blogAdd', ctrlBlog.blogAdd);
 router.get('/blogEdit', ctrlBlog.blogEdit);
