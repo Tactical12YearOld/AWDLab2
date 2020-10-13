@@ -58,7 +58,6 @@ var renderListpage = function(req, res, responseBody){
     blogEntries: [{
       blogTitle: 'Title1',
       blogText: 'Text1',
-      _id : _id,
       dateCreated: convertDate(todaysDate)
     }],
     blogs: responseBody,
