@@ -29,7 +29,7 @@ function convertDate(date) {
          + 'T' + (hhChars[1]?hh:"0"+hhChars[0]) + ':' + (mChars[1]?m:"0"+mChars[0]) 
          + ':' + (ssChars[1]?ss:"0"+ssChars[0]) + ':' + (mmmChars[1]?mmm:"0"+mmmChars[0]) + 'Z';
 }
-module.exports.blogLlist = function(req, res){
+module.exports.blogList = function(req, res){
   blogModel
             .find()
             .exec(function(err, blogs) {
@@ -41,7 +41,7 @@ module.exports.blogLlist = function(req, res){
                 sendJSONresponse(res,404, err);
                 return;
               }
-              console.log(blog);
+              console.log(blogs);
               sendJSONresponse(res, 200, blogs);
             });
 };
