@@ -33,7 +33,7 @@ module.exports.blogList = function(req, res){
   var requestOptions, path;
   path = '/api/blogs';
   requestOptions = {
-    url: 'http://54.89.191.207/' + path,
+    url: apiOptions.server + path,
     method : "GET",
     json : {}
   };
@@ -47,10 +47,12 @@ module.exports.blogList = function(req, res){
 var renderListpage = function(req, res, responseBody){
   var message;
   if (!(responseBody instanceof Array)) {
+    console.log("Failed if 1");
     message = "API lookup error";
     responseBody = [];
   } else {
     if (!responseBody.length) {
+      console.log("Failed if 2");
       message = "No blog entries found";
     }
   }
