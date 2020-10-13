@@ -45,17 +45,7 @@ module.exports.blogList = function(req, res){
   );
 };
 var renderListpage = function(req, res, responseBody){
-  var message;
-  if (!(responseBody instanceof Array)) {
-    console.log("Failed if 1");
-    message = "API lookup error";
-    responseBody = [];
-  } else {
-    if (!responseBody.length) {
-      console.log("Failed if 2");
-      message = "No blog entries found";
-    }
-  }
+  
   res.render('blog-list', {
     blogs : responseBody
   });
