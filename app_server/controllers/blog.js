@@ -45,7 +45,7 @@ module.exports.blogList = function(req, res){
 };
 var renderListpage = function(req, res, responseBody){
   var message;
-  if (!(responseBody instanceof Array)) {
+  if ((responseBody instanceof Array)) {
     console.log("Failed if 1");
     message = "API lookup error";
     responseBody = [];
