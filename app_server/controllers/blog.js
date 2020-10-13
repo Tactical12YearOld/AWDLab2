@@ -1,10 +1,7 @@
 var request = require('request');
 var apiOptions = { 
-  server : "http://127.0.0.1:27017"
+  server : "http://localhost:27017"
 };
-if (process.env.NODE_ENV === 'production') {
-  apiOptions.server = "http://54.89.191.207";
-}
 
 /* GET blog page */
 var todaysDate = new Date();
@@ -61,6 +58,7 @@ var renderListpage = function(req, res, responseBody){
     blogs: responseBody
   });
 }
+
 module.exports.blogAdd = function(req, res){
 	res.render('blogAdd');
 };
