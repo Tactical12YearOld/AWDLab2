@@ -1,6 +1,6 @@
 var request = require('request');
 var apiOptions = { 
-  server : "http://localhost:27017"
+  server : "http://127.0.0.1:27017"
 };
 
 /* GET blog page */
