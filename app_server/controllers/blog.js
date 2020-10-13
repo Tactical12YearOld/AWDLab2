@@ -33,7 +33,7 @@ module.exports.blogList = function(req, res){
   var requestOptions, path;
   path = '/api/blogs';
   requestOptions = {
-    url: apiOptions.server + path,
+    url: 'http://54.89.191.207/' + path,
     method : "GET",
     json : {}
   };
