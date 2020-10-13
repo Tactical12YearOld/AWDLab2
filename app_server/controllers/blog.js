@@ -40,7 +40,14 @@ module.exports.blogList = function(req, res){
   request(
     requestOptions,
     function(err, response, body) {
-      renderBlogList(req, res, body);
+      var i, data;
+      data = body;
+      if (response.statusCode === 200 && data.length){
+        for (i=0; i < data.length; i++){
+            data[i].blogs =  data [i];
+        }
+        }
+      renderBlogList(req, res, data);
     }
   );
 };
