@@ -1,5 +1,4 @@
 var request = require('request');
-const Request = require('request/request');
 var apiOptions = { 
   server : "http://127.0.0.1:27017"
 };
