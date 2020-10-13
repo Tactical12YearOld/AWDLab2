@@ -55,8 +55,7 @@ var renderListpage = function(req, res, responseBody){
     }
   }
   res.render('blogList', {
-    blogs: responseBody,
-    message: message
+    blogs: responseBody
   });
 }
 module.exports.blogAdd = function(req, res){
