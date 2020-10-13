@@ -62,7 +62,7 @@ var renderListpage = function(req, res, responseBody){
 //his
 module.exports.list = function(req, res){
   var requestOptions, path;
-  path = '/api/books';
+  path = '/api/blogs';
   requestOptions = { 
       url : apiOptions.server + path,
       method : "GET",
