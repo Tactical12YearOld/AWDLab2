@@ -1,4 +1,11 @@
 /* GET home page */
+var request = require('request');
+var apiOptions = { 
+  server : "http://127.0.0.1:27017"
+};
+if (process.env.NODE_ENV === 'production') {
+  apiOptions.server = "http://54.89.191.207";
+}
 var renderListpage = function(req, res, responseBody){
   var message;
   if (!(responseBody instanceof Array)) {
