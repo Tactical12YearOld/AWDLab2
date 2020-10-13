@@ -49,7 +49,6 @@ var renderListpage = function(req, res, responseBody){
       console.log("Failed if 2");
       message = "No blog entries found";
     }
-  }
   res.render('blog-list', {
     blogs: responseBody
   });
