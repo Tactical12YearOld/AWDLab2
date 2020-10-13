@@ -48,7 +48,21 @@ var renderListpage = function(req, res, responseBody){
   if (!(responseBody instanceof Array)) {
     console.log("Failed if 1");
     message = "API lookup error";
-    responseBody = [];
+    responseBody = [
+      blogEntries: [{
+        blogTitle: 'Title1',
+        blogText: 'Text1',
+        dateCreated: convertDate(todaysDate)
+      },{
+        blogTitle: 'Title2',
+        blogText: 'Text2',
+        dateCreated: convertDate(todaysDate)
+      },{
+        blogTitle: 'Title3',
+        blogText: 'Text3',
+        dateCreated: convertDate(todaysDate)
+      }]
+    ];
   } else {
     if (!responseBody.length) {
       console.log("Failed if 2");
