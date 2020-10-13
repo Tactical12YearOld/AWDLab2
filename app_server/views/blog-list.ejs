@@ -9,15 +9,15 @@
   </head>
   <body>
 	<% include ./partials/nav %>
-	<% for(var i = 0; i < <%=blogs.length%>; i++) { %>
+	<% for(var i = 0; i < <%= blogs.length %>; i++) { %>
 		<p>
 			<div class="card border-primary" style="width: 50%">
 			<div class="card-header">
 			</div>
 			<div class="card-body">
-				<h5 class="card-title"> <%=blogs[i].blogTitle%></h5>
-				<h6 class="card-subtitle"> <%=blogs[i].dateCreated%></h6>
-				<p class="card-text:last-child"> <%=blogs[i].blogText%></p>
+				<h5 class="card-title"> <%= blogs[i].blogTitle %></h5>
+				<h6 class="card-subtitle"> <%= blogs[i].dateCreated %></h6>
+				<p class="card-text:last-child"> <%= blogs[i].blogText %></p>
 			</div>
 			<div class="card-footer">
 				<div class="col-sm">
