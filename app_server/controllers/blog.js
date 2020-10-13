@@ -40,6 +40,7 @@ module.exports.blogList = function(req, res){
   request(
     requestOptions,
     function(err, response, body) {
+      console.log(body);
       renderListpage(req, res, body);
     }
   );
