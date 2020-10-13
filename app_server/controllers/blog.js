@@ -49,7 +49,7 @@ var renderListpage = function(req, res, responseBody){
     console.log("Failed if 1");
     message = "API lookup error";
     responseBody = [
-      blogEntries: [{
+      {
         blogTitle: 'Title1',
         blogText: 'Text1',
         dateCreated: convertDate(todaysDate)
@@ -61,7 +61,7 @@ var renderListpage = function(req, res, responseBody){
         blogTitle: 'Title3',
         blogText: 'Text3',
         dateCreated: convertDate(todaysDate)
-      }]
+      }
     ];
   } else {
     if (!responseBody.length) {
