@@ -40,10 +40,28 @@ module.exports.blogList = function(req, res){
   request(
     requestOptions,
     function(err, response, body) {
-      renderBlogList(req, res, body);
+      renderListpage(req, res, body);
     }
   );
 };
+var renderListpage = function(req, res, responseBody){
+  var message;
+  if (!(responseBody instanceof Array)) {
+    message = "API lookup error";
+    responseBody = [];
+  } else {
+    if (!responseBody.length) {
+      message = "No blog entries found";
+    }
+  }
+  res.render('blogList', {
+    pageHeader: {
+      title : 'Blog List',
+    },
+    blogs: responseBody,
+    message: message
+  });
+}
 module.exports.blogAdd = function(req, res){
 	res.render('blogAdd');
 };
