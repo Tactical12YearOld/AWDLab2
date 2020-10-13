@@ -55,7 +55,7 @@ var renderListpage = function(req, res, responseBody){
       message = "No blog entries found";
     }
   }
-  res.render('blogList', {
+  res.render('blog-list', {
     blogs: responseBody
   });
 }
