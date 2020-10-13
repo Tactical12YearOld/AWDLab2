@@ -32,7 +32,7 @@ function convertDate(date) {
 module.exports.blogList = function(req, res){
   blogModel
             .find()
-            .exec(function(err, blog) {
+            .exec(function(err, blogs) {
               if (!blog) {
                 sendJSONresponse(res, 400, {"message": "no blogs found"});
               return;
@@ -41,8 +41,8 @@ module.exports.blogList = function(req, res){
                 sendJSONresponse(res,404, err);
                 return;
               }
-              console.log(blog);
-              sendJSONresponse(res, 200, blog);
+              console.log(blogs);
+              sendJSONresponse(res, 200, blogs);
             });
 };
 
