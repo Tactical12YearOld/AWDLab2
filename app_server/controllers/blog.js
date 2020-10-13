@@ -55,9 +55,19 @@ var renderListpage = function(req, res, responseBody){
     }
   }
   res.render('blogList', {
-    pageHeader: {
-      title : 'Blog List',
-    },
+    blogEntries: [{
+      blogTitle: 'Title1',
+      blogText: 'Text1',
+      dateCreated: convertDate(todaysDate)
+    },{
+      blogTitle: 'Title2',
+      blogText: 'Text2',
+      dateCreated: convertDate(todaysDate)
+    },{
+      blogTitle: 'Title3',
+      blogText: 'Text3',
+      dateCreated: convertDate(todaysDate)
+    }],
     blogs: responseBody,
     message: message
   });
