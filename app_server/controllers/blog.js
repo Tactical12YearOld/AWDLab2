@@ -56,9 +56,6 @@ var renderListpage = function(req, res, responseBody){
   }
   res.render('blogList', {
     blogs: responseBody,
-    blogEntries: [{
-      blogs
-    }],
     message: message
   });
 }
