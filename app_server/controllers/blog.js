@@ -56,6 +56,10 @@ var renderListpage = function(req, res, responseBody){
     }
   }
   res.render('blog-list', {
+    title: 'Blog List',
+      pageHeader: {
+          title: 'Blog List'
+      },
     blogs: responseBody
   });
 }
