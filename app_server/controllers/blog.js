@@ -27,6 +27,22 @@ function convertDate(date) {
          + ':' + (ssChars[1]?ss:"0"+ssChars[0]) + ':' + (mmmChars[1]?mmm:"0"+mmmChars[0]) + 'Z';
 };
 //mine
+var renderListpage = function(req, res, responseBody){
+  var message;
+  if (!(responseBody instanceof Array)) {
+    message = "API lookup error";
+    responseBody = [];
+  }else {
+    if (!responseBody.length) {
+      message = "No blogs found"
+    }
+  }
+  res.render('blog-list', {
+    title : "blog-list",
+    blogs : responseBody,
+    message : message
+  });
+};
 module.exports.blogList = function(req, res){
   var requestOptions, path;
   path = '/api/blogs';
@@ -44,12 +60,7 @@ module.exports.blogList = function(req, res){
     }
   );
 };
-var renderListpage = function(req, res, responseBody){
-  
-  res.render('blog-list', {
-    blogs : responseBody
-  });
-}
+
 ///his
 /*module.exports.list = function(req, res){
   var requestOptions, path;
