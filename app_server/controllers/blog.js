@@ -45,7 +45,7 @@ var renderListpage = function(req, res, responseBody){
 };
 module.exports.blogList = function(req, res){
   var requestOptions, path;
-  path = '/api/blogs';
+  path = "/api/blogs";
   requestOptions = {
     url: apiOptions.server + path,
     method : "GET",
@@ -81,7 +81,7 @@ var renderDeletepage = function(req, res, responseBody){
 };
 module.exports.blogDelete = function(req, res){
   var requestOptions, path;
-  path = '/api/blogs/' + req.params.blogid;
+  path = "/api/blogs/" + req.params.blogid;
   requestOptions = {
     url: apiOptions.server + path,
     method : "DELETE",
