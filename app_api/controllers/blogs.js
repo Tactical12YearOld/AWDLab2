@@ -105,7 +105,7 @@ module.exports.blogDelete = function(req, res){
     var blogid = req.params.blogid;
     if (blogid) {
       blogModel
-        .findByIdAndDelete(blogid)
+        .findByIdAndRemove(blogid)
         .exec(
           function(err, blogid) {
             if (err) {
