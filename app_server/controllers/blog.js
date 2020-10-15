@@ -77,7 +77,11 @@ var renderDeletepage = function(req, res, responseBody){
       message = "No blogs found"
     }
   }
-  res.render('blogDelete')
+  res.render('blogDelete', {
+    title : "Blog Deleted",
+    blog : responseBody,
+    message : message,
+  });
 };
 module.exports.blogDelete = function(req, res){
   var requestOptions, path;
