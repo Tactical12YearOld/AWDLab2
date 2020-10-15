@@ -85,7 +85,7 @@ var renderDeletepage = function(req, res, responseBody){
 };
 module.exports.blogDelete = function(req, res){
   var requestOptions, path;
-  path = '/api/blogs/';
+  path = '/api/blogs/blogid';
   requestOptions = {
     url: apiOptions.server + path,
     method : "DELETE",
