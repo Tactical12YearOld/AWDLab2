@@ -61,41 +61,27 @@ module.exports.blogList = function(req, res){
   );
 };
 
-///his
-/*module.exports.list = function(req, res){
-  var requestOptions, path;
-  path = '/api/blogs';
-  requestOptions = { 
-      url : apiOptions.server + path,
-      method : "GET",
-      json : {},
-      qs : {} 
-      };
-  request(
-      requestOptions,
-      function(err, response, body) {
-          renderListPage(req, res, body);
-      }
-  );
-};
-
- Render the book list page 
-var renderListPage = function(req, res, responseBody){
-  res.render('blog-list', {
-      title: 'Blog List',
-      pageHeader: {
-          title: 'Blog List'
-      },
-      blogs: responseBody
-  });
-};
-*/
 module.exports.blogAdd = function(req, res){
 	res.render('blogAdd');
 };
 module.exports.blogEdit = function(req, res){
   res.render('blogEdit');
 };
+
 module.exports.blogDelete = function(req, res){
-  res.render('blogDelete');
+  var requestOptions, path;
+  path = '/api/blogs/blogid';
+  requestOptions = {
+    url: apiOptions.server + path,
+    method : "DELETE",
+    json : {},
+    qs : {}
+  };
+  request(
+    requestOptions,
+    function(err, response, body) {
+      console.log(body);
+      renderListpage(req, res, body);
+    }
+  );
 };

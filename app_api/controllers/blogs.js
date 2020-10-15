@@ -105,17 +105,26 @@ module.exports.blogDelete = function(req, res){
     var blogid = req.params.blogid;
     if (blogid) {
       blogModel
-        .findByIdAndRemove(blogid)
+        .findById(blogid)
         .exec(
-          function(err, blogs) {
+          function(err, blog) {
+            sendJSONresponse(res, 200, blog);
             if (err) {
               console.log(err);
               sendJSONresponse(res, 404, err);
               return;
             }
-            console.log("blog id " + blogid + " deleted");
-            sendJSONresponse(res, 204, null);
           }
+      ).remove(function(err, blog) {
+        if (err) {
+          console.log(err);
+          sendJSONresponse(res, 404, err);
+          return;
+        }
+        console.log("blog id " + blogid + " deleted");
+        sendJSONresponse(res, 204, null);
+      
+      }
       );
     } else {
       sendJSONresponse(res, 404, {
