@@ -3,7 +3,7 @@ var blogSchema = new mongoose.Schema({
     
     blogTitle: {type: String, default: "Untitled", required: true},
     blogText: {type: String, default: "Empty Blog", required: true},
-    _id: {type: String, default: ObjectId().str, required: true},
+    _id: {type: String, default: blogs.str, required: true},
     dateCreated: {type: Date,default: Date.now, required: true}
 });
 //compiling schema into models
