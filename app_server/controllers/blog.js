@@ -68,16 +68,8 @@ module.exports.blogEdit = function(req, res){
   res.render('blogEdit');
 };
 var renderDeletepage = function(req, res, responseBody){
-  var message;
-  if (!(responseBody instanceof Array)) {
-    message = "API lookup error";
-    responseBody = [];
-  }else {
-    if (!responseBody.length) {
-      message = "No blogs found"
-    }
-  }
-  res.render('blogDelete');
+  res.render('blogDelete',{
+              blog : responseBody});
 };
 module.exports.blogDelete = function(req, res){
   var requestOptions, path;
