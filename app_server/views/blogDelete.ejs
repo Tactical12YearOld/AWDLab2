@@ -10,7 +10,27 @@
   <body>
 	<% include ./partials/nav %>
 		<p>
-			<h3> Blog Deleted</h3>
+			<div class="card border-primary" style="width: 50%">
+				<div class="card-header">
+				</div>
+				<div class="card-body">
+					<h5 class="card-title"> <%= blogs.blogTitle %></h5>
+					<h6 class="card-subtitle"> <%= blogs.dateCreated %></h6>
+					<p class="card-text:last-child"> <%= blogs.blogText %></p>
+				</div>
+				<div class="card-footer">
+					<div class="col-sm">
+						<ul class="nav justify-content-end nav-pills card-header-pills">
+							<li class="nav-item">
+								<a class="nav-link" href="/blogEdit"> <i class="far fa-edit fa-lg"></i></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/blogDelete"> <i class="far fa-trash-alt fa-lg"></i></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				</div>
 		</p>
 </body>
 <script src='/javascripts/jquery-3.5.1.min.js'></script>
