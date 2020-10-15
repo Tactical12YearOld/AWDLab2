@@ -81,7 +81,6 @@ var renderDeletepage = function(req, res, responseBody){
     title : "Blog Deleted",
     blog : responseBody,
     message : message,
-    id : req.params.id
   });
 };
 module.exports.blogDelete = function(req, res){
