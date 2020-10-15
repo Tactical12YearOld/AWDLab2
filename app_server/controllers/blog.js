@@ -82,7 +82,7 @@ var renderDeletepage = function(req, res, responseBody){
     blog : responseBody,
     message : message
   });
-
+};
 module.exports.blogDelete = function(req, res){
   var requestOptions, path;
   path = '/api/blogs/blogid';
