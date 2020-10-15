@@ -80,7 +80,8 @@ var renderDeletepage = function(req, res, responseBody){
   res.render('blogDelete', {
     title : "Blog Deleted",
     blog : responseBody,
-    message : message
+    message : message,
+    id : req.params.id
   });
 };
 module.exports.blogDelete = function(req, res){
