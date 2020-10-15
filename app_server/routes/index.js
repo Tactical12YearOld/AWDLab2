@@ -8,7 +8,7 @@ router.get('/blog-list/:blogid', ctrlBlog.blogList);
 router.get('/blog-list', ctrlBlog.blogList);
 router.get('/blogAdd', ctrlBlog.blogAdd);
 router.get('/blogEdit', ctrlBlog.blogEdit);
-router.get('/blogDelete', ctrlBlog.blogDelete);
+router.get('/blogDelete/:blogid', ctrlBlog.blogDelete);
 router.post('/blogDelete/:blogid', ctrlBlog.blogDelete);
 
 module.exports = router;
