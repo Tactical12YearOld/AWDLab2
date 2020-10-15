@@ -67,6 +67,21 @@ module.exports.blogAdd = function(req, res){
 module.exports.blogEdit = function(req, res){
   res.render('blogEdit');
 };
+var renderDeletepage = function(req, res, responseBody){
+  var message;
+  if (!(responseBody instanceof Array)) {
+    message = "API lookup error";
+    responseBody = [];
+  }else {
+    if (!responseBody.length) {
+      message = "No blogs found"
+    }
+  }
+  res.render('blogDelete', {
+    title : "Blog Deleted",
+    blog : responseBody,
+    message : message
+  });
 
 module.exports.blogDelete = function(req, res){
   var requestOptions, path;
@@ -81,7 +96,7 @@ module.exports.blogDelete = function(req, res){
     requestOptions,
     function(err, response, body) {
       console.log(body);
-      renderListpage(req, res, body);
+      renderDeletepage(req, res, body);
     }
   );
 };
