@@ -88,7 +88,7 @@ module.exports.blogDelete = function(req, res){
   path = '/api/blogs/:blogid';
   requestOptions = {
     url: apiOptions.server + path,
-    method : "POST",
+    method : "DELETE",
     json : {},
     qs : {}
   };
