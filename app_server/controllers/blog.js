@@ -28,19 +28,9 @@ function convertDate(date) {
 };
 //mine
 var renderListpage = function(req, res, responseBody){
-  var message;
-  if (!(responseBody instanceof Array)) {
-    message = "API lookup error";
-    responseBody = [];
-  }else {
-    if (!responseBody.length) {
-      message = "No blogs found"
-    }
-  }
   res.render('blog-list', {
     title : "blog-list",
-    blogs : responseBody,
-    message : message
+    blogs : responseBody
   });
 };
 var renderSinglePage = function(req, res, responseBody){
@@ -86,7 +76,7 @@ module.exports.blogAdd = function(req, res){
 	res.render('blogAdd');
 };
 module.exports.blogEdit = function(req, res){
-  
+
   res.render('blogEdit');
 };
 var renderDeletepage = function(req, res, responseBody){
