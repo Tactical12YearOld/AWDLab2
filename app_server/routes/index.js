@@ -5,6 +5,7 @@ const ctrlBlog = require('../controllers/blog')
 /* GET home page. */
 router.get('/', ctrlHome.home);
 router.get('/blog-list/:blogid', ctrlBlog.blogList);
+router.get('/blog-list/', ctrlBlog.blogList);
 router.get('/blog-single/:blogid', ctrlBlog.blogShowOne);
 router.get('/blogAdd', ctrlBlog.blogAdd);
 router.get('/blogEdit/:blogid', ctrlBlog.blogEdit);
