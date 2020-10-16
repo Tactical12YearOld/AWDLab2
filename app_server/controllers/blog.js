@@ -60,14 +60,13 @@ module.exports.blogList = function(req, res){
     }
   );
 };
-module.exports.blogList = function(req, res){
+module.exports.blogListShowOne = function(req, res){
   var requestOptions, path;
   path = "/api/blogs/" + req.params.blogid;
   requestOptions = {
     url: apiOptions.server + path,
     method : "GET",
     json : {},
-    qs : {}
   };
   request(
     requestOptions,
