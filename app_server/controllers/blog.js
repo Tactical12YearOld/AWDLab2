@@ -86,6 +86,7 @@ module.exports.blogAdd = function(req, res){
 	res.render('blogAdd');
 };
 module.exports.blogEdit = function(req, res){
+  
   res.render('blogEdit');
 };
 var renderDeletepage = function(req, res, responseBody){
