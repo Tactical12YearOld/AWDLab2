@@ -60,7 +60,23 @@ module.exports.blogList = function(req, res){
     }
   );
 };
-
+module.exports.blogList = function(req, res){
+  var requestOptions, path;
+  path = "/api/blogs/" + req.params.blogid;
+  requestOptions = {
+    url: apiOptions.server + path,
+    method : "GET",
+    json : {},
+    qs : {}
+  };
+  request(
+    requestOptions,
+    function(err, response, body) {
+      console.log(body);
+      renderListpage(req, res, body);
+    }
+  );
+};
 module.exports.blogAdd = function(req, res){
 	res.render('blogAdd');
 };
