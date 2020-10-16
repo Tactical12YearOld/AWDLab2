@@ -43,6 +43,22 @@ var renderListpage = function(req, res, responseBody){
     message : message
   });
 };
+var renderSinglePage = function(req, res, responseBody){
+  var message;
+  if (!(responseBody instanceof Array)) {
+    message = "API lookup error";
+    responseBody = [];
+  }else {
+    if (!responseBody.length) {
+      message = "No blogs found"
+    }
+  }
+  res.render('blog-single', {
+    title : "blog single view",
+    blog : responseBody,
+    message : message
+  });
+};
 module.exports.blogList = function(req, res){
   var requestOptions, path;
   path = "/api/blogs";
@@ -72,7 +88,7 @@ module.exports.blogListShowOne = function(req, res){
     requestOptions,
     function(err, response, body) {
       console.log(body);
-      renderListpage(req, res, body);
+      renderSinglePage(req, res, body);
     }
   );
 };
