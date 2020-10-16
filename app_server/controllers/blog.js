@@ -114,7 +114,7 @@ module.exports.blogDelete = function(req, res){
   request(
   requestOptions,
   function(err, response, body){
-  renderBlogDelete(req, res, body);
+  renderDeletepage(req, res, body);
   }
   );
   };
