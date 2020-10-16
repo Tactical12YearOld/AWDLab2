@@ -44,6 +44,15 @@ var renderListpage = function(req, res, responseBody){
   });
 };
 var renderSinglePage = function(req, res, responseBody){
+  var message;
+  if (!(responseBody instanceof Array)) {
+    message = "API lookup error";
+    responseBody = [];
+  }else {
+    if (!responseBody.length) {
+      message = "No blogs found"
+    }
+  }
   res.render('blog-single', {
     title : "blog single view",
     blog : responseBody
