@@ -12,11 +12,11 @@
 		<p>
 			<div class="card border-primary" style="width: 50%">
 			<div class="card-header">
-				<h5 class="card-title" <%= blog.blogTitle %></h5>
+				<h5 class="card-title" <%=blog.blogTitle%></h5>
 			</div>
 			<div class="card-body">
-				<h5 class="card-subtitle"> <%= blog.dateCreated %></h5>
-				<p class="card-text:last-child"> <%= blog.blogText %></p>
+				<h5 class="card-subtitle"> <%=blog.dateCreated%></h5>
+				<p class="card-text:last-child"> <%=blog.blogText%></p>
 			</div>
 			<div class="card-footer">
 				<div class="col-sm">
@@ -25,7 +25,7 @@
 							<a class="nav-link" href="/blogEdit"> <i class="far fa-edit fa-lg"></i></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/blogDelete/<%=blog[0]_id%>"> <i class="far fa-trash-alt fa-lg"></i></a>
+							<a class="nav-link" href="/blogDelete/<%=blog._id%>"> <i class="far fa-trash-alt fa-lg"></i></a>
 						</li>
 					</ul>
 				</div>
