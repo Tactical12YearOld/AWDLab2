@@ -9,11 +9,18 @@
   </head>
   <body>
 	<% include ./partials/nav %>
-		<h3>Are you sure?</h3>
-		<strong> YES:</strong>	
-			<a class="nav-link" href="/blogDelete/blogs[0]._id"<i class="far fa-trash-alt fa-lg"></i>
-	   <strong> NO:</strong>
-			<a class="nav-link" href="/blog-list"><i class="far fa-backward fa-lg"></i>/a>
+	<div class="card-footer">
+		<div class="col-sm">
+			<ul class="nav left-content nav-pills card-header-pills">
+				<li class="nav-item" YES>
+					<a class="nav-link" href="/blogEdit"> <i class="far fa-edit fa-lg"></i></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/blogDelete/<%=blogs[i]._id%>"> <i class="far fa-trash-alt fa-lg"></i></a>
+				</li>
+			</ul>
+		</div>
+	</div>
 </body>
 <script src='/javascripts/jquery-3.5.1.min.js'></script>
 <script src='bootstrap/js/bootstrap.min.js'></script>
