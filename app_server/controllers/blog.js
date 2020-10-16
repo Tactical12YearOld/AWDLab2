@@ -87,3 +87,19 @@ module.exports.blogDelete = function(req, res){
     }
   );
 };
+
+module.exports.blogDelete = function(req, res){
+  var requestOptions, path;
+  path = "/api/blogs/" + req.params.blogid;
+  requestOptions = {
+  url: apiOptions.server + path,
+  method: "GET",
+  json: {}
+  };
+  request(
+  requestOptions,
+  function(err, response, body){
+  renderBlogDelete(req, res, body);
+  }
+  );
+  };
