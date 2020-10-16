@@ -9,29 +9,13 @@
   </head>
   <body>
 	<% include ./partials/nav %>
-		<p>
-			<div class="card border-primary" style="width: 50%">
-			<div class="card-header">
-				<a class="card-title" href="/blog-list/<%=blogs[i]._id%>">  <%= blogs[i].blogTitle %></a>
-			</div>
-			<div class="card-body">
-				<h5 class="card-subtitle"> <%= blogs[i].dateCreated %></h5>
-				<p class="card-text:last-child"> <%= blogs[i].blogText %></p>
-			</div>
-			<div class="card-footer">
-				<div class="col-sm">
-					<ul class="nav justify-content-end nav-pills card-header-pills">
-						<li class="nav-item">
-							<a class="nav-link" href="/blogEdit"> <i class="far fa-edit fa-lg"></i></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/blogConfirm/<%=blogs[i]._id%>"> <i class="far fa-trash-alt fa-lg"></i></a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			</div>
-		</p>
+		<form action="/blogDelete/blogs._id" method="POST">
+		<h3>Are you sure?</h3>
+			<input type="radio" name="decision" value="Yes"/>
+			<input type="radio" name="decision" value="No" checked="checked"/>
+			<input type="submit" value="DELETE ME"/>
+		</form>
+
 </body>
 <script src='/javascripts/jquery-3.5.1.min.js'></script>
 <script src='bootstrap/js/bootstrap.min.js'></script>
