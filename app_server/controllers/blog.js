@@ -82,23 +82,6 @@ var renderDeletepage = function(req, res, responseBody){
   res.render('blogDelete',{
               blog : responseBody});
 };
-module.exports.doBlogDelete = function(req, res){
-  var requestOptions, path;
-  path = "/api/blogs/" + req.params.blogid;
-  requestOptions = {
-    url: apiOptions.server + path,
-    method : "POST",
-    json : {}
-  };
-  request(
-    requestOptions,
-    function(err, response, body) {
-      console.log(body);
-      renderDeletepage(req, res, body);
-    }
-  );
-};
-
 module.exports.blogDelete = function(req, res){
   var requestOptions, path;
   path = "/api/blogs/" + req.params.blogid;
@@ -108,9 +91,26 @@ module.exports.blogDelete = function(req, res){
   json: {}
   };
   request(
-  requestOptions,
-  function(err, response, body){
-  renderDeletepage(req, res, body);
-  }
-  );
+    requestOptions,
+    function(err, response, body){
+      console.log(body);
+      renderDeletepage(req, res, body);
+      }
+    );
+  };
+  module.exports.doBlogDelete = function(req, res){
+    var requestOptions, path;
+    path = "/api/blogs/" + req.params.blogid;
+    requestOptions = {
+      url: apiOptions.server + path,
+      method : "DELETE",
+      json : {}
+    };
+    request(
+      requestOptions,
+      function(err, response, body) {
+        console.log(body);
+        renderDeletepage(req, res, body);
+      }
+    );
   };
