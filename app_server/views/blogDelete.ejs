@@ -13,11 +13,9 @@
 		<form action="/blogDelete/<%=blog._id%>" method="POST">
 		<ul>
 			<li> <strong> YES:</strong></li>	
-			<input type="radio" name="decision" value="Yes"/>
-			<input type="submit" value="DELETE ME"/>
-			<li> <strong> NO:</strong></li>
-			<input type="radio" name="decision" value="No" checked="checked"/>
-			<input type="submit" value="SAVE ME"/>
+			<input type="button" value="DELETE ME"/>
+			<li> <strong> <a href='/blog-list/'>NO:</a></strong></li>
+			<input type="button" name="decision" value="No" checked="checked"/>
 		</ul>
 		</form>
 
