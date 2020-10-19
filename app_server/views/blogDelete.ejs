@@ -10,13 +10,11 @@
   <body>
 	<% include ./partials/nav %>
 		<h3>Are you sure?</h3>
-		<form action="/blogDelete/<%=blog._id%>" method="POST">
-		<ul>
-			<li> <strong> YES:</strong></li>	
+		<form action="/blogDelete/<%=blog._id%>" method="POST">	
 			<input type="button" value="DELETE ME"/>
-			<li> <strong> NO:</strong></li>
-			<input href='/blog-list/' type="button" name="decision" value="No" checked="checked"/>
-		</ul>
+		</form>
+		<form action="/blog-list/" method="GET">
+			<input type="button" value="SAVE ME"/>
 		</form>
 
 </body>
