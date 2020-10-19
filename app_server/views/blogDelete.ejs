@@ -10,7 +10,7 @@
   <body>
 	<% include ./partials/nav %>
 		<h3>Are you sure?</h3>
-		<form action="http//:localhost:80/blogDelete/<%=blog._id%>" method="POST">
+		<form action="/blogDelete/<%=blog._id%>" method="POST">
 		<ul>
 			<li> <strong> YES:</strong></li>	
 			<input type="radio" name="decision" value="Yes"/>
