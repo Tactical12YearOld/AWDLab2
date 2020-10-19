@@ -9,7 +9,7 @@
   </head>
   <body>
 	<% include ./partials/nav %>
-		<form action="/blogDelete/<%=blog._id%>" method="DELETE">
+		<form action="/blogDelete/<%=blog._id%>" method="POST">
 			<label for="question"> Are you sure?</label>
 			<input type="submit" value="OK">
 		</form>
