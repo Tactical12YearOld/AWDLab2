@@ -9,17 +9,14 @@
   </head>
   <body>
 	<% include ./partials/nav %>
-	<% for(var i = 0; i < blogs.length; i++) { %>
 		<p>
 			<div class="card border-primary" style="width: 50%">
 			<div class="card-header">
-				<h5>
-					<a class="card-title" href="/blog-single/<%=blogs[i]._id%>"> <%= blogs[i].blogTitle%></a>
-				</h5>
+				<h5 class="card-title"> <%=blog.blogTitle%></h5>
 			</div>
 			<div class="card-body">
-				<h5 class="card-subtitle"> <%= blogs[i].dateCreated %></h5>
-				<p class="card-text:last-child"> <%= blogs[i].blogText %></p>
+				<h5 class="card-subtitle"> <%=blog.dateCreated%></h5>
+				<p class="card-text"> <%=blog.blogText%></p>
 			</div>
 			<div class="card-footer">
 				<div class="col-sm">
@@ -28,14 +25,13 @@
 							<a class="nav-link" href="/blogEdit"> <i class="far fa-edit fa-lg"></i></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/blogDelete/<%=blogs[i]._id%>"> <i class="far fa-trash-alt fa-lg"></i></a>
+							<a class="nav-link" href="/blogDelete/<%=blog._id%>"> <i class="far fa-trash-alt fa-lg"></i></a>
 						</li>
 					</ul>
 				</div>
 			</div>
 			</div>
 		</p>
-	<% } %>
 </body>
 <script src='/javascripts/jquery-3.5.1.min.js'></script>
 <script src='bootstrap/js/bootstrap.min.js'></script>
