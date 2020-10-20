@@ -92,8 +92,6 @@ module.exports.doBlogAdd = function(req, res){
       function(err, response, body) {
         if (response.statusCode === 201) {
           res.redirect('/blog-single/' + blogid);
-        } else if (response.statusCode === 400 && body.name && body.name === "ValidationError" ) {
-          res.redirect('/blog-list/');
         } else {
           console.log(body);
           _showError(req, res, response.statusCode);
