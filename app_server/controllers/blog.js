@@ -87,9 +87,6 @@ module.exports.doBlogAdd = function(req, res){
     method : "POST",
     json : postdata
   };
-  if (!postdata.blogText || !postdata.blogTitle) {
-    res.redirect('/blogs-list/');
-  } else {
     request(
       requestOptions,
       function(err, response, body) {
@@ -103,7 +100,6 @@ module.exports.doBlogAdd = function(req, res){
         }
       }
     );
-  }
 };
 module.exports.doBlogAdd = function(req,res){
   res.render('blogAdd',{
