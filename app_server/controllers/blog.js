@@ -75,7 +75,7 @@ module.exports.blogShowOne = function(req, res){
   );
 };
 
-module.exports.doBlogAdd = function(req, res){
+module.exports.blogAdd = function(req, res){
   var requestOptions, path, postdata;
   path = "/api/blogs/";
   postdata = {
@@ -105,6 +105,11 @@ module.exports.doBlogAdd = function(req, res){
     );
   }
 };
+module.exports.doBlogAdd = function(req,res){
+  res.render('blogAdd',{
+    blog
+  })
+}
 var renderAddPage = function(req, res, responseBody){
   res.render('blogAdd',{
               blog : responseBody});
