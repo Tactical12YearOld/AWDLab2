@@ -106,11 +106,9 @@ module.exports.doBlogAdd = function(req, res){
       }
     );
 };
-module.exports.doBlogAdd = function(req,res){
-  res.render('blogAdd',{
-    blog
-  })
-}
+module.exports.blogAdd = function(req,res){
+  res.render('blogAdd');
+};
 var renderAddPage = function(req, res, responseBody){
   res.render('blogAdd',{
               blog : responseBody});
