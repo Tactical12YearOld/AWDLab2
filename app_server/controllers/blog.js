@@ -73,8 +73,25 @@ module.exports.blogShowOne = function(req, res){
   );
 };
 module.exports.blogAdd = function(req, res){
-	res.render('blogAdd');
+  var requestOptions, path;
+  path = "/api/blogs/";
+  requestOptions = {
+    url: apiOptions.server + path,
+    method : "POST",
+    json : {},
+  };
+  request(
+    requestOptions,
+    function(err, response, body) {
+      console.log(body);
+      renderAddPage(req, res, body);
+    }
+  );
 };
+var renderAddPage = function(req, res, responseBody){
+  res.render('blogAdd',{
+              blog : responseBody});
+}
 module.exports.blogEdit = function(req, res){
   res.render('blogEdit');
 };
