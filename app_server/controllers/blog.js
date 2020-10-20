@@ -75,7 +75,7 @@ module.exports.blogShowOne = function(req, res){
   );
 };
 
-module.exports.blogAdd = function(req, res){
+module.exports.doBlogAdd = function(req, res){
   var requestOptions, path, postdata;
   path = "/api/blogs/";
   postdata = {
