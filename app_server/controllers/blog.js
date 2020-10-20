@@ -1,6 +1,6 @@
 var request = require('request');
 var apiOptions = { 
-  server : "http://127.0.0.1:80"
+  server : "http://localhost"
 };
 
 /* GET blog page */
@@ -75,7 +75,7 @@ module.exports.blogShowOne = function(req, res){
   );
 };
 
-module.exports.blogAdd = function(req, res){
+module.exports.doBlogAdd = function(req, res){
   var requestOptions, path, postdata;
   path = "/api/blogs/";
   postdata = {
