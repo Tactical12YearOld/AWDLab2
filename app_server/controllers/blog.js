@@ -39,6 +39,7 @@ var renderSinglePage = function(req, res, responseBody){
     blog : responseBody
   });
 };
+
 module.exports.blogList = function(req, res){
   var requestOptions, path;
   path = "/api/blogs";
@@ -56,6 +57,7 @@ module.exports.blogList = function(req, res){
     }
   );
 };
+
 module.exports.blogShowOne = function(req, res){
   var requestOptions, path;
   path = "/api/blogs/" + req.params.blogid;
@@ -72,20 +74,51 @@ module.exports.blogShowOne = function(req, res){
     }
   );
 };
+
 module.exports.blogAdd = function(req, res){
-  res.render("blogAdd");
+  var requestOptions, path, postdata;
+  path = "/api/blogs/";
+  postdata = {
+    blogTitle: req.body.blogTitle,
+    blogText: req.body.blogText
+  };
+  requestOptions = {
+    url : apiOptions.server + path,
+    method : "POST",
+    json : postdata
+  };
+  if (!postdata.blogText || !postdata.blogTitle) {
+    res.redirect('/blogs-list/');
+  } else {
+    request(
+      requestOptions,
+      function(err, response, body) {
+        if (response.statusCode === 201) {
+          res.redirect('/blog-single/' + blogid);
+        } else if (response.statusCode === 400 && body.name && body.name === "ValidationError" ) {
+          res.redirect('/blog-list/');
+        } else {
+          console.log(body);
+          _showError(req, res, response.statusCode);
+        }
+      }
+    );
+  }
 };
 var renderAddPage = function(req, res, responseBody){
   res.render('blogAdd',{
               blog : responseBody});
 }
+
 module.exports.blogEdit = function(req, res){
   res.render('blogEdit');
 };
+
 var renderDeletepage = function(req, res, responseBody){
   res.render('blogDelete',{
               blog : responseBody});
 };
+
 module.exports.blogDelete = function(req, res){
   var requestOptions, path;
   path = "/api/blogs/" + req.params.blogid;
