@@ -76,24 +76,29 @@ module.exports.blogShowOne = function(req, res){
 };
 
 module.exports.doBlogAdd = function(req, res){
+  console.log("app_server/controllers/blog.js:line 79");
   var requestOptions, path, postdata;
+  console.log("app_server/controllers/blog.js:line 81");
   path = "/api/blogs/";
-  postdata = {
+  console.log("app_server/controllers/blog.js:line 83");
+  postdata = {  
     blogTitle: req.body.blogTitle,
     blogText: req.body.blogText
   };
+  console.log("app_server/controllers/blogs.js:line 88");
   requestOptions = {
     url : apiOptions.server + path,
     method : "POST",
     json : postdata
   };
+  console.log("app_server/controllers/blogs.js:line 94");
     request(
       requestOptions,
       function(err, response, body) {
         if (response.statusCode === 201) {
           res.redirect('/blog-single/' + blogid);
         } else if (response.statusCode === 400 && body.name && body.name === "ValidationError" ) {
-          res.redirect('/blogAdd/');
+          res.redirect('/blog-list/');
         } else {
           console.log(body);
           _showError(req, res, response.statusCode);
