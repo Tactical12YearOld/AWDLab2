@@ -89,6 +89,7 @@ module.exports.doBlogAdd = function(req, res){
     method : "POST",
     json : postdata
   };
+  console.log("Sending request");
     request(
       requestOptions,
       function(err, response, body) {
