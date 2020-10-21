@@ -83,6 +83,7 @@ module.exports.doBlogAdd = function(req, res){
     blogTitle: req.body.blogTitle,
     blogText: req.body.blogText
   };
+  console.log("Building request options");
   requestOptions = {
     url : apiOptions.server + path,
     method : "POST",
@@ -119,7 +120,10 @@ request(
   );
 };
 var renderAddPage = function(req, res, responseBody){
-  res.render('blogAdd');
+  res.render('blogAdd',{
+              blogTitle: res.body.blogTitle,
+              blogText: res.body.blogText
+  });
 }
 
 module.exports.blogEdit = function(req, res){
