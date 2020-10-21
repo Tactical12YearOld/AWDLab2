@@ -120,10 +120,7 @@ request(
   );
 };
 var renderAddPage = function(req, res, responseBody){
-  res.render('blogAdd',{
-              blogTitle: res.body.blogTitle,
-              blogText: res.body.blogText
-  });
+  res.render('blogAdd');
 }
 
 module.exports.blogEdit = function(req, res){
