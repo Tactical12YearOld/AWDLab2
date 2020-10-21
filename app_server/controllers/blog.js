@@ -93,15 +93,8 @@ module.exports.doBlogAdd = function(req, res){
     request(
       requestOptions,
       function(err, response, body) {
-        if (response.statusCode === 201) {
           console.log("Hello from first if in doBlogAdd");
           res.redirect('/blog-list/');
-        } else if (response.statusCode === 400 && body.name && body.name === "ValidationError" ) {
-          res.redirect('/blog-list/');
-        } else {
-          console.log("hello from last else in doBlogAdd");
-          console.log(body);
-        }
       }
     );
 };
