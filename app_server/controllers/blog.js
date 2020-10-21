@@ -76,22 +76,17 @@ module.exports.blogShowOne = function(req, res){
 };
 
 module.exports.doBlogAdd = function(req, res){
-  console.log("app_server/controllers/blog.js:line 79");
   var requestOptions, path, postdata;
-  console.log("app_server/controllers/blog.js:line 81");
   path = "/api/blogs/";
-  console.log("app_server/controllers/blog.js:line 83");
   postdata = {  
     blogTitle: req.body.blogTitle,
     blogText: req.body.blogText
   };
-  console.log("app_server/controllers/blogs.js:line 88");
   requestOptions = {
     url : apiOptions.server + path,
     method : "POST",
     json : postdata
   };
-  console.log("app_server/controllers/blogs.js:line 94");
     request(
       requestOptions,
       function(err, response, body) {
@@ -107,8 +102,21 @@ module.exports.doBlogAdd = function(req, res){
     );
 };
 module.exports.blogAdd = function(req,res){
-  res.render('blogAdd');
-};
+  var requestOptions, path;
+  path = "/api/blogs/";
+  requestOptions = {
+  url: apiOptions.server + path,
+  method: "GET",
+  json: {}
+  };
+  request(
+    requestOptions,
+    function(err, response, body){
+      console.log(body);
+      renderAddPage(req, res, body);
+      }
+    );
+  };
 var renderAddPage = function(req, res, responseBody){
   res.render('blogAdd',{
               blog : responseBody});
