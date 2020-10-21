@@ -78,6 +78,7 @@ module.exports.blogShowOne = function(req, res){
 module.exports.doBlogAdd = function(req, res){
   var requestOptions, path, postdata;
   path = "/api/blogs/";
+  console.log("bout to make post struct")
   postdata = {  
     blogTitle: req.body.blogTitle,
     blogText: req.body.blogText
