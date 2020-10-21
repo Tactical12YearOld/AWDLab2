@@ -99,7 +99,6 @@ module.exports.doBlogAdd = function(req, res){
           res.redirect('/blog-list/');
         } else {
           console.log(body);
-          _showError(req, res, response.statusCode);
         }
       }
     );
