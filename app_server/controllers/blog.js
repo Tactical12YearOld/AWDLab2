@@ -102,24 +102,23 @@ module.exports.doBlogAdd = function(req, res){
     );
 };
 module.exports.blogAdd = function(req,res){
-  var requestOptions, path;
-  path = "/api/blogs/";
-  requestOptions = {
-  url: apiOptions.server + path,
-  method: "GET",
-  json: {}
-  };
-  request(
-    requestOptions,
-    function(err, response, body){
-      console.log(body);
-      renderAddPage(req, res, body);
-      }
-    );
-  };
+var requestOptions, path;
+path = "/api/blogs/";
+requestOptions = {
+url: apiOptions.server + path,
+method: "GET",
+json: {}
+};
+request(
+  requestOptions,
+  function(err, response, body){
+    console.log(body);
+    renderAddPage(req, res, body);
+    }
+  );
+};
 var renderAddPage = function(req, res, responseBody){
-  res.render('blogAdd',{
-              blog : responseBody});
+  res.render('blogAdd');
 }
 
 module.exports.blogEdit = function(req, res){
