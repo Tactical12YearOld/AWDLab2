@@ -10,7 +10,7 @@
   <body>
 	<% include ./partials/nav %>	
 	<div class="card border-primary" style="width: 50%">
-		<form action="/blogDelete/:<%blog._id%>" method="POST">
+		<form action="/blogDelete/:<%=blog._id%>" method="POST">
 			<div class="form-group">
 				<label for="summary" class="text-primary">Blog Title</label>
 				<input readonly class="form-control" id="blogTitle" name="blogTitle" value="<%=blog.blogTitle%>">
