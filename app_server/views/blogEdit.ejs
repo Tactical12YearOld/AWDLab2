@@ -13,9 +13,9 @@
 		<form action="/blogEdit/<%=blog._id%>" method="POST">
 			<div class="form-group">
 				<label for="blogTitle" class="text-primary">Blog Title</label>
-				<textarea class="form-control cols-" id="blogTitle" name="blogTitle"rows="1"><%=blog.blogTitle%></textarea>
+				<textarea class="form-control col" id="blogTitle" name="blogTitle"rows="1"><%=blog.blogTitle%></textarea>
 				<label for="blogText" class="text-primary">Blog Text</label>
-				<textarea class="form-control cols-" id="blogText" name="blogText" rows="3"><%=blog.blogText%></textarea>
+				<textarea class="form-control col" id="blogText" name="blogText" rows="3"><%=blog.blogText%></textarea>
 			</div>
 				<a role="button" class="btn btn-primary float-right" href="/blog-list" value="Cancel">Cancel</a>	
 				<button type="submit" class="btn btn-warning float-right">Edit</button>
