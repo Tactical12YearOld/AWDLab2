@@ -127,7 +127,7 @@ module.exports.blogDelete = function(req, res){
 };
 module.exports.blogRemoveEmpty = function(req, res){
   blogModel
-    .deleteMany({ blogTitle: 'Untitled' }, function (err) {
+    .deleteMany({ blogTitle: "Untitled" }, function (err) {
       if(err) {
         console.log(err);
         sendJSONresponse(res, 404, err);
