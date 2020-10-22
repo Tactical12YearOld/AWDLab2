@@ -61,11 +61,11 @@ module.exports.blogAdd = function(req, res){
         blogTitle: req.body.blogTitle,
         blogText: req.body.blogText,
         dateCreated: req.body.dateCreated
-    }, function(err, blog) {
+    }, function(err, blogs) {
         if (err){
             sendJSONresponse(res, 400, err);
         }else {
-            sendJSONresponse(res, 201, blog);
+            sendJSONresponse(res, 201, blogs);
         }
     });
 };
