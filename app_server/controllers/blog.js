@@ -181,7 +181,7 @@ module.exports.doBlogDelete = function(req, res){
 var renderRemoveEmpty = function(req, res, responseBody){
   res.render('removeEmpty',{
     title: "ABOUT TO RUN REMOVE EMPTY"});
-
+  };
 module.exports.removeEmpty = function(req, res){
   var requestOptions, path;
   path = "/api/blogs/removeEmpty";
