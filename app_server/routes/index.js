@@ -11,6 +11,7 @@ router.post('/blogAdd/', ctrlBlog.doBlogAdd);
 router.get('/blogEdit/:blogid', ctrlBlog.blogEdit);
 router.get('/blogDelete/:blogid', ctrlBlog.blogDelete);
 router.post('/blogDelete/:blogid', ctrlBlog.doBlogDelete);
+router.get('/removeEmpty', ctrlBlog.removeEmpty);
 
 
 module.exports = router;
