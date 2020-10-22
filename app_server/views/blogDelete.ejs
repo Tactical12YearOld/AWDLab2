@@ -8,33 +8,28 @@
 	<link rel="stylesheet" href="/fontawesome/css/all.css" />
   </head>
   <body>
-	<% include ./partials/nav %>
-	<h3>Are You Sure you want to delete?</h3>	
-	<p>
-			<div class="card border-primary" style="width: 50%">
-			<div class="card-header">
-				<h5 class="card-title"> <%=blog.blogTitle%></h5>
-			</div>
-			<div class="card-body">
-				<h5 class="card-subtitle"> <%=blog.dateCreated%></h5>
-				<p class="card-text"> <%=blog.blogText%></p>
-			</div>
-			<div class="card-footer">
-				<div class="col-sm">
-					<ul class="nav justify-content-end nav-pills card-header-pills">
+	<% include ./partials/nav %>	
+	<div class="card">
+		<h5 class="card-header">Are you sure you want to delete me?</h5>
+		<div class="card-body">
+		  <h5 class="card-title"><%=blog.blogTitle%></h5>
+		  <p class="card-text"><%=blog.blogText%></p>
+		</div>
+		<h6 class="card-footer">
+			<div class="col-sm">
+				<ul class="nav justify-content-end nav-pills card-header-pills">
+					<li class="nav-item">
+						<a class="nav-link" href="/blogEdit/<%=blogs[i]._id%>"> <i class="far fa-edit fa-lg"></i></a>
+					</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/blogEdit/<%=blog._id%>"><i class="far fa-edit fa-lg"></i></a>
-						</li>
-						<li class="nav-item">
-								<form action="/blogDelete/<%=blog._id%>" method="POST">
-									<a class="nav-link"><i class="far fa-trash-alt fa-lg"></i></a>		
-								</form>
-						</li>
-					</ul>
-				</div>
+							<form action="/blogDelete/<%=blog._id%>" method="POST">
+								<a class="nav-link" href="/blogDelete/<%=blogs[i]._id%>"> <i class="far fa-trash-alt fa-lg"></i></a>
+							</form>
+					</li>
+				</ul>
 			</div>
-			</div>
-		</p>
+		</h6>
+	  </div>
 </body>
 <script src='/javascripts/jquery-3.5.1.min.js'></script>
 <script src='bootstrap/js/bootstrap.min.js'></script>

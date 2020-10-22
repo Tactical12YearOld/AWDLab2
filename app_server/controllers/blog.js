@@ -128,21 +128,26 @@ module.exports.blogEdit = function(req, res){
 
 var renderDeletepage = function(req, res, responseBody){
   res.render('blogDelete',{
-              blog : responseBody});
+    title: "Delete Blog",
+    blog : responseBody});
 };
 
 module.exports.blogDelete = function(req, res){
   var requestOptions, path;
   path = "/api/blogs/" + req.params.blogid;
+  console.log("Building requests opt struct now SERVER");
   requestOptions = {
   url: apiOptions.server + path,
   method: "GET",
   json: {}
   };
+  console.log("Sending request now SERVER");
   request(
     requestOptions,
     function(err, response, body){
+      console.log("Printing body now SERVER");
       console.log(body);
+      console.log("Rendering delete page SERVER");
       renderDeletepage(req, res, body);
       }
     );
