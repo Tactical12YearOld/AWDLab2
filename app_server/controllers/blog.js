@@ -164,6 +164,7 @@ request(
     console.log(body);
   }
 );
+};
 var renderDeletepage = function(req, res, responseBody){
   res.render('blogDelete',{
     title: "Delete Blog",
