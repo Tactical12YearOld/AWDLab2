@@ -81,7 +81,7 @@ module.exports.doBlogAdd = function(req, res){
   console.log("bout to make post struct")
   POSTDATA = {  
     blogTitle: req.body.blogTitle,
-    blogText: req.body.blogText,
+    blogText: req.body.blogText
   };
   console.log("Building request options");
   requestOptions = {
