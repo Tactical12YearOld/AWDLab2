@@ -125,15 +125,3 @@ module.exports.blogDelete = function(req, res){
       });
     }
 };
-module.exports.blogRemoveEmpty = function(req, res){
-  console.log("INSIDE REMOVE EMPTY API" )
-  blogModel
-    .deleteMany({blogTitle: "Untitled"}, function (err) {
-      if(err) {
-        console.log(err);
-        sendJSONresponse(res, 404, err);
-      }
-      console.log("Successful deletion");
-      sendJSONresponse(res, 204, null);
-    });
-}
