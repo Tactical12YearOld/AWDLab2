@@ -25,10 +25,10 @@ module.exports.blogList = function(req, res){
 };
 
 module.exports.blogReadOne = function(req, res){
-    console.log('Finding blog details API', req.params, req.params.blogid);
-    if (req.params && req.params.blogid)
+    console.log('Finding blog details API', req.params);
+    if (req.params)
     {
-        blogModel.findById(req.params.blogid)
+        blogModel.findById(req.params)
                  .exec(function(err, blogs) 
         {
           if (!blogs) 
