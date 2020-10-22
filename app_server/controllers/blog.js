@@ -90,12 +90,13 @@ module.exports.doBlogAdd = function(req, res){
     method : "POST",
     json : blog
   };
-  console.log("Sending request");
+  
+    console.log("Sending request");
     request(
       requestOptions,
-      function(err, response, body) {
+      function(err, response, blog) {
           console.log("Hello from first if in doBlogAdd");
-          renderSinglePage(req, res, response);
+          renderSinglePage(req, res, blog);
       }
     );
 };
