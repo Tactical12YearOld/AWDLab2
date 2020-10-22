@@ -9,7 +9,7 @@ router.get('/blog-single/:blogid', ctrlBlog.blogShowOne);
 router.get('/blogAdd', ctrlBlog.blogAdd);
 router.post('/blogAdd/', ctrlBlog.doBlogAdd);
 router.get('/blogEdit/:blogid', ctrlBlog.blogEdit);
-router.put('/blogEdit/:blogid', ctrlBlog.doBlogEdit)
+router.post('/blogEdit/:blogid', ctrlBlog.doBlogEdit)
 router.get('/blogDelete/:blogid', ctrlBlog.blogDelete);
 router.post('/blogDelete/:blogid', ctrlBlog.doBlogDelete);
 
