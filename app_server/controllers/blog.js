@@ -144,7 +144,7 @@ module.exports.blogEdit = function(req, res) {
 var renderEditPage = function(req, res, responseBody){
   res.render('blogEdit', {
       title: 'Blog Edit',
-      book: responseBody
+      blog: responseBody
   });
 };
 
@@ -159,7 +159,7 @@ module.exports.doBlogEdit = function(req, res){
       blogTitle: req.body.blogTitle,
       blogText: req.body.blogText
   };
-
+  console.log("building request opts in doBlogEdit SERVER");
   requestOptions = {
       url : apiOptions.server + path,
       method : "PUT",
