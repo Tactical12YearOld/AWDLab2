@@ -110,13 +110,12 @@ module.exports.blogDelete = function(req, res){
       blogModel
         .findByIdAndRemove(blogid)
         .exec(
-          function(err, blogid) {
+          function(err, response) {
             if (err) {
               console.log(err);
               sendJSONresponse(res, 404, err);
-              return;
             }
-            console.log("blog id " + blogid + " deleted");
+            console.log("blog id " + response + " deleted");
             sendJSONresponse(res, 204, null);
           }
       );
