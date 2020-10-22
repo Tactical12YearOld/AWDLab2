@@ -94,9 +94,9 @@ module.exports.doBlogAdd = function(req, res){
     console.log("Sending request");
     request(
       requestOptions,
-      function(err, response, blog) {
+      function(err, response, body) {
           console.log("Hello from first if in doBlogAdd");
-          renderSinglePage(req, res, blog);
+          renderSinglePage(req, res, body);
       }
     );
 };
