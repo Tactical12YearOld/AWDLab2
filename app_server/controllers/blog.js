@@ -76,7 +76,7 @@ module.exports.blogShowOne = function(req, res){
 };
 
 module.exports.doBlogAdd = function(req, res){
-  var requestOptions, path, postdata;
+  var requestOptions, path, blog;
   path = "/api/blogs/";
   console.log("bout to make post struct")
   blog = {  
@@ -95,7 +95,7 @@ module.exports.doBlogAdd = function(req, res){
       requestOptions,
       function(err, response, body) {
           console.log("Hello from first if in doBlogAdd");
-          res.redirect("/blog-single");
+          renderSinglePage(req, res, response);
       }
     );
 };
