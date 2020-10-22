@@ -152,7 +152,7 @@ var renderEditPage = function(req, res, responseBody){
 /* Book Edit Post */
 module.exports.doBlogEdit = function(req, res){
   var requestOptions, path, postdata;
-  var id = req.params.blogid;
+  var blogid = req.params.blogid;
   path = '/api/blogs/' + blogid;
 
   postdata = {
