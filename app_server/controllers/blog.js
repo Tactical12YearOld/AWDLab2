@@ -142,7 +142,6 @@ module.exports.blogEdit = function(req, res){
     }
   );
 };
-};
 
 var renderDeletepage = function(req, res, responseBody){
   res.render('blogDelete',{
