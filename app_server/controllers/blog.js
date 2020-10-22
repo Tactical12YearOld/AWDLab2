@@ -158,7 +158,7 @@ module.exports.blogDelete = function(req, res){
     console.log("building request opts for doBlogDelete SERVER");
     requestOptions = {
       url: apiOptions.server + path,
-      method : "DELETE",
+      method : "POST",
       json : {}
     };
     console.log("sending request to delete blog SERVER");
