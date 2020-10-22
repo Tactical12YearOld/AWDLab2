@@ -152,6 +152,11 @@ module.exports.blogDelete = function(req, res){
       }
     );
   };
+  var renderRemoveEmpty = function(req, res, responseBody){
+    res.render('blogDelete',{
+      title: "ABOUT TO RUN EMPTY",
+      blog : responseBody});
+  };
 module.exports.doBlogDelete = function(req, res){
   var requestOptions, path;
   path = "/api/blogs/" + req.params.blogid;
@@ -172,8 +177,6 @@ module.exports.doBlogDelete = function(req, res){
       }
 
       console.log(body);
-      console.log("renderDeletePage is next SERVER");
-      renderDeletepage(req, res, body);
     }
   );
 };
