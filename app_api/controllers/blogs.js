@@ -70,12 +70,14 @@ module.exports.blogAdd = function(req, res){
     });
 };
 module.exports.blogEdit = function(req, res){
-    if (!req.params.blogid) {
+  console.log("INSIDE OF BLOG EDIT API");  
+  if (!req.params.blogid) {
         sendJSONresponse(res, 404, {
           "message": "Not found, blogid is required"
         });
         return;
       }
+      console.log("Past null check starting edit prog");
       blogModel
         .findById(req.params.blogid)
         .exec(
