@@ -118,7 +118,6 @@ module.exports.blogEdit = function(req, res){
             console.log("reassigning fields API");
             blogs.blogTitle = req.body.blogTitle;
             blogs.blogText = req.body.blogText;
-            blogs.dateCreated =  dateToNiceString(req.body.dateCreated);
             blogs.save(function(err, blogs) {
               if (err) {
                 sendJSONresponse(res, 404, err);
