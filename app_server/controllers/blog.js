@@ -165,14 +165,16 @@ module.exports.doBlogEdit = function(req, res){
       method : "PUT",
       json : postdata
   };
-
+  console.log("Sending request in doBlogEdit SERVER");
   request(
 requestOptions,
       function(err, response, body) {
           if (response.statusCode === 201) {
-              res.redirect('/blog-list');
+              
+            res.redirect('/blog-list');
           } else {
-              res.redirect('/blog-list');
+            console.log("Somethings Funky");  
+            res.redirect('/blog-list');
           }
       }
   );
