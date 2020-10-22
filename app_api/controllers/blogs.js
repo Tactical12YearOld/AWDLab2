@@ -126,6 +126,7 @@ module.exports.blogDelete = function(req, res){
     }
 };
 module.exports.blogRemoveEmpty = function(req, res){
+  console.log("INSIDE REMOVE EMPTY API" )
   blogModel
     .deleteMany({blogTitle: "Untitled"}, function (err) {
       if(err) {
