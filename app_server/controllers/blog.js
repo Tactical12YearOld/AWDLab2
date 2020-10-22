@@ -211,7 +211,7 @@ module.exports.doRemoveEmpty = function(req, res){
   console.log("building request opts for removeEmpty SERVER");
   requestOptions = {
     url: apiOptions.server + path,
-    method : "DELETE",
+    method : "GET",
     json : {}
   };
   console.log("sending request to delete blog SERVER");
