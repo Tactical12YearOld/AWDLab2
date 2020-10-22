@@ -91,6 +91,7 @@ module.exports.blogEdit = function(req, res){
               sendJSONresponse(res, 400, err);
               return;
             }
+            console.log("reassigning fields API");
             blogs.blogTitle = req.body.blogTitle;
             blogs.blogText = req.body.blogText;
             blogs.save(function(err, blogs) {
