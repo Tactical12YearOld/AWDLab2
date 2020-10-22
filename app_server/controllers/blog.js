@@ -204,11 +204,11 @@ module.exports.removeEmpty = function(req, res){
   };
 module.exports.doRemoveEmpty = function(req, res){
   var requestOptions, path;
-  path = "/api/removeEmpty";
+  path = "/api/blogs/removeEmpty/do";
   console.log("building request opts for removeEmpty SERVER");
   requestOptions = {
     url: apiOptions.server + path,
-    method : "DELETE",
+    method : "GET",
     json : {}
   };
   console.log("sending request to delete blog SERVER");
