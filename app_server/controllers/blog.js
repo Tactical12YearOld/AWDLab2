@@ -94,7 +94,7 @@ module.exports.doBlogAdd = function(req, res){
     request(
       requestOptions,
       function(err, response, body) {
-          console.log("Hello from first if in doBlogAdd");
+          console.log("Render list page is next");
           renderListpage(req,res,response);
       }
     );
