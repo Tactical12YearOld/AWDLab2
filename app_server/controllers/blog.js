@@ -142,7 +142,28 @@ module.exports.blogEdit = function(req, res){
     }
   );
 };
+module.exports.doBlogEdit = function(req, res){
+var requestOptions, path;
+path = "/api/blogs/" + req.params.blogid;
+console.log("building request opts for doBlogDelete SERVER");
+requestOptions = {
+  url: apiOptions.server + path,
+  method : "DELETE",
+  json : {}
+};
+console.log("sending request to delete blog SERVER");
+request(
+  requestOptions,
+  function(err, response, body) {
+    if(response.statusCode === 204) {
+      res.redirect('/blog-list');
+    }else {
+      res.redirect('/blog-list');
+    }
 
+    console.log(body);
+  }
+);
 var renderDeletepage = function(req, res, responseBody){
   res.render('blogDelete',{
     title: "Delete Blog",
