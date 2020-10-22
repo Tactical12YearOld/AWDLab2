@@ -93,7 +93,6 @@ module.exports.blogEdit = function(req, res){
             }
             blogs.blogTitle = req.body.blogTitle;
             blogs.blogText = req.body.blogText;
-            blogs.dateCreated = req.body.dateCreated;
             blogs.save(function(err, blogs) {
               if (err) {
                 sendJSONresponse(res, 404, err);

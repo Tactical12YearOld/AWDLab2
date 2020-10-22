@@ -122,6 +122,14 @@ var renderAddPage = function(req, res, responseBody){
   });
 }
 
+/* Render the blog edit page */
+var renderEditPage = function(req, res, responseBody){
+  res.render('blogEdit', {
+      title: 'Blog Edit',
+      blog: responseBody
+  });
+};
+
 /* Book Edit */
 module.exports.blogEdit = function(req, res) {
   var requestOptions, path;
@@ -139,15 +147,6 @@ module.exports.blogEdit = function(req, res) {
   );
 };
 
-/* Render the blog edit page */
-var renderEditPage = function(req, res, responseBody){
-  res.render('blogEdit', {
-      title: 'Blog Edit',
-      blog: responseBody
-  });
-};
-
-
 /* Blog Edit Post */
 module.exports.doBlogEdit = function(req, res){
   var requestOptions, path, postdata;
@@ -161,7 +160,7 @@ module.exports.doBlogEdit = function(req, res){
   console.log("building request opts in doBlogEdit SERVER");
   requestOptions = {
       url : apiOptions.server + path,
-      method : "POST",
+      method : "PUT",
       json : postdata
   };
   console.log("Sending request in doBlogEdit SERVER");
