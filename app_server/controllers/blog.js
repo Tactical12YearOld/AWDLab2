@@ -5,7 +5,6 @@ var apiOptions = {
 
 /* GET blog page */
 var todaysDate = new Date();
-
 var convertDate = function (date) {
   var yyyy = date.getFullYear().toString();
   var mm = (date.getMonth()+1).toString();
@@ -21,11 +20,7 @@ var convertDate = function (date) {
   var mChars = m.split('');
   var ssChars = ss.split('');
   var mmmChars = mmm.split('');
-  if (mm ==='10')
-  {
-    mm = "October";
-  }
-  return yyyy + '-' + (mmChars[1]?mm:"0"+mmChars[0]) + '-' + (ddChars[1]?dd:"0"+ddChars[0]) 
+  return yyyy + '-' + (mmChars[7]?mm:"0"+mmChars[0]) + '-' + (ddChars[1]?dd:"0"+ddChars[0]) 
          + 'T' + (hhChars[1]?hh:"0"+hhChars[0]) + ':' + (mChars[1]?m:"0"+mChars[0]) 
          + ':' + (ssChars[1]?ss:"0"+ssChars[0]) + ':' + (mmmChars[1]?mmm:"0"+mmmChars[0]) + 'Z';
 };
