@@ -123,7 +123,25 @@ var renderAddPage = function(req, res, responseBody){
 }
 
 module.exports.blogEdit = function(req, res){
-  res.render('blogEdit');
+  var requestOptions, path;
+  path = "/api/blogs/" + req.params.blogid;
+  console.log("Building requests opt struct in blogEdit now SERVER");
+  requestOptions = {
+  url: apiOptions.server + path,
+  method: "GET",
+  json: {}
+  };
+  console.log("Sending request in blogEdit nowd SERVER");
+  request(
+    requestOptions,
+    function(err, response, body){
+      console.log("Printing body now SERVER");
+      console.log(body);
+      console.log("Rendering delete page SERVER");
+      renderDeletepage(req, res, body);
+    }
+  );
+};
 };
 
 var renderDeletepage = function(req, res, responseBody){
@@ -149,14 +167,10 @@ module.exports.blogDelete = function(req, res){
       console.log(body);
       console.log("Rendering delete page SERVER");
       renderDeletepage(req, res, body);
-      }
-    );
-  };
-  var renderRemoveEmpty = function(req, res, responseBody){
-    res.render('blogDelete',{
-      title: "ABOUT TO RUN EMPTY",
-      blog : responseBody});
-  };
+    }
+  );
+};
+
 module.exports.doBlogDelete = function(req, res){
   var requestOptions, path;
   path = "/api/blogs/" + req.params.blogid;
