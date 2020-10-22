@@ -87,8 +87,7 @@ module.exports.doBlogAdd = function(req, res){
   requestOptions = {
     url : apiOptions.server + path,
     method : "POST",
-    json : blog,
-    qs : {}
+    json : blog
   };
   console.log(requestOptions.json);
     console.log("Sending request");
