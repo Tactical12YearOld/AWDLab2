@@ -29,7 +29,7 @@ module.exports.blogReadOne = function(req, res){
     if (req.params && req.params.blogid)
     {
         blogModel.findById(req.params.blogid)
-                 .exec(function(err, blogs) 
+                 .exec(function(err, blog) 
         {
           if (!blogs) 
           {
@@ -43,7 +43,7 @@ module.exports.blogReadOne = function(req, res){
             return;
           }
           console.log(blogs);
-          sendJSONresponse(res, 200, blogs);
+          sendJSONresponse(res, 200, blog);
         });
     } 
     else 

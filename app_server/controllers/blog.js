@@ -134,7 +134,7 @@ var renderDeletepage = function(req, res, responseBody){
 
 module.exports.blogDelete = function(req, res){
   var requestOptions, path;
-  path = "/api/blogs/" + req.params._id;
+  path = "/api/blogs/" + req.params.blogid;
   console.log("Building requests opt struct now SERVER");
   requestOptions = {
   url: apiOptions.server + path,
@@ -154,7 +154,7 @@ module.exports.blogDelete = function(req, res){
   };
   module.exports.doBlogDelete = function(req, res){
     var requestOptions, path;
-    path = "/api/blogs/" + req.params._id;
+    path = "/api/blogs/" + req.params.blogid;
     console.log("building request opts for doBlogDelete SERVER");
     requestOptions = {
       url: apiOptions.server + path,
