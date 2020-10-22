@@ -90,7 +90,7 @@ module.exports.doBlogAdd = function(req, res){
     method : "POST",
     json : blog
   };
-  
+  console.log(requestOptions.json);
     console.log("Sending request");
     request(
       requestOptions,
