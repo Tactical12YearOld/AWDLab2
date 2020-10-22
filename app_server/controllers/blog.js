@@ -82,7 +82,6 @@ module.exports.doBlogAdd = function(req, res){
   blog = {  
     blogTitle: req.body.blogTitle,
     blogText: req.body.blogText,
-    dateCreated: req.body.dateCreated
   };
   console.log("Building request options");
   requestOptions = {
@@ -97,7 +96,7 @@ module.exports.doBlogAdd = function(req, res){
       requestOptions,
       function(err, response, body) {
           console.log("Hello from first if in doBlogAdd");
-          renderAddPage(req, res, body);
+          renderAddPage(req, res, response.blog);
       }
     );
 };
