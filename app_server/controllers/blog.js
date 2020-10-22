@@ -76,10 +76,10 @@ module.exports.blogShowOne = function(req, res){
 };
 
 module.exports.doBlogAdd = function(req, res){
-  var requestOptions, path, blog;
+  var requestOptions, path, POSTDATA;
   path = "/api/blogs/";
   console.log("bout to make post struct")
-  blog = {  
+  POSTDATA = {  
     blogTitle: req.body.blogTitle,
     blogText: req.body.blogText,
   };
@@ -87,7 +87,7 @@ module.exports.doBlogAdd = function(req, res){
   requestOptions = {
     url : apiOptions.server + path,
     method : "POST",
-    json : blog
+    json : POSTDATA
   };
   console.log(requestOptions.json);
     console.log("Sending request");
@@ -95,7 +95,7 @@ module.exports.doBlogAdd = function(req, res){
       requestOptions,
       function(err, response, body) {
           console.log("Hello from first if in doBlogAdd");
-          renderListpage(req,res,body);
+          renderListpage(req,res,response);
       }
     );
 };
