@@ -139,8 +139,7 @@ module.exports.blogEdit = function(req, res) {
   );
 };
 
-
-/* Render the book edit page */
+/* Render the blog edit page */
 var renderEditPage = function(req, res, responseBody){
   res.render('blogEdit', {
       title: 'Blog Edit',
@@ -149,7 +148,7 @@ var renderEditPage = function(req, res, responseBody){
 };
 
 
-/* Book Edit Post */
+/* Blog Edit Post */
 module.exports.doBlogEdit = function(req, res){
   var requestOptions, path, postdata;
   var blogid = req.params.blogid;
@@ -162,7 +161,7 @@ module.exports.doBlogEdit = function(req, res){
   console.log("building request opts in doBlogEdit SERVER");
   requestOptions = {
       url : apiOptions.server + path,
-      method : "PUT",
+      method : "POST",
       json : postdata
   };
   console.log("Sending request in doBlogEdit SERVER");
