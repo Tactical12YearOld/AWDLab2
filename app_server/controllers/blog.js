@@ -79,18 +79,16 @@ module.exports.doBlogAdd = function(req, res){
   var requestOptions, path, postdata;
   path = "/api/blogs/";
   console.log("bout to make post struct")
-  postdata = { 
-    blog : { 
-      blogTitle: req.body.blogTitle,
-      blogText: req.body.blogText,
-      dateCreated: req.body.dateCreated
-  }
+  blog = {  
+    blogTitle: req.body.blogTitle,
+    blogText: req.body.blogText,
+    dateCreated: req.body.dateCreated
   };
   console.log("Building request options");
   requestOptions = {
     url : apiOptions.server + path,
     method : "POST",
-    json : postdata
+    json : blog
   };
   console.log("Sending request");
     request(
