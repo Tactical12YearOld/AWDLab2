@@ -122,48 +122,60 @@ var renderAddPage = function(req, res, responseBody){
   });
 }
 
-module.exports.blogEdit = function(req, res){
+/* Book Edit */
+module.exports.blogEdit = function(req, res) {
   var requestOptions, path;
   path = "/api/blogs/" + req.params.blogid;
-  console.log("Building requests opt struct in blogEdit now SERVER");
   requestOptions = {
-  url: apiOptions.server + path,
-  method: "GET",
-  json: {}
-  };
-  console.log("Sending request in blogEdit nowd SERVER");
+      url : apiOptions.server + path,
+      method : "GET",
+      json : {}
+  }; 
   request(
-    requestOptions,
-    function(err, response, body){
-      console.log("Printing body now SERVER");
-      console.log(body);
-      console.log("Rendering delete page SERVER");
-      renderDeletepage(req, res, body);
-    }
+      requestOptions,
+      function(err, response, body) {
+              renderEditPage(req, res, body);
+      }
   );
 };
-module.exports.doBlogEdit = function(req, res){
-var requestOptions, path;
-path = "/api/blogs/" + req.params.blogid;
-console.log("building request opts for doBlogDelete SERVER");
-requestOptions = {
-  url: apiOptions.server + path,
-  method : "DELETE",
-  json : {}
-};
-console.log("sending request to delete blog SERVER");
-request(
-  requestOptions,
-  function(err, response, body) {
-    if(response.statusCode === 204) {
-      res.redirect('/blog-list');
-    }else {
-      res.redirect('/blog-list');
-    }
 
-    console.log(body);
-  }
-);
+
+/* Render the book edit page */
+var renderEditPage = function(req, res, responseBody){
+  res.render('blogEdit', {
+      title: 'Blog Edit',
+      book: responseBody
+  });
+};
+
+
+/* Book Edit Post */
+module.exports.doBlogEdit = function(req, res){
+  var requestOptions, path, postdata;
+  var id = req.params.blogid;
+  path = '/api/blogs/' + blogid;
+
+  postdata = {
+      blogTitle: req.body.blogTitle,
+      blogText: req.body.blogText
+  };
+
+  requestOptions = {
+      url : apiOptions.server + path,
+      method : "PUT",
+      json : postdata
+  };
+
+  request(
+requestOptions,
+      function(err, response, body) {
+          if (response.statusCode === 201) {
+              res.redirect('/blog-list');
+          } else {
+              res.redirect('/blog-list');
+          }
+      }
+  );
 };
 var renderDeletepage = function(req, res, responseBody){
   res.render('blogDelete',{
