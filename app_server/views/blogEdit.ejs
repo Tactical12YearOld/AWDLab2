@@ -10,10 +10,10 @@
   <body>
 	<% include ./partials/nav %>	
 	<div class="card border-primary">
-		<form action="/blogEdit/<%=blog._id%>" method="PUT">
+		<form action="/blogEdit/<%=blog._id%>" method="POST">
 			<div class="form-group">
 				<label for="blogTitle" class="text-primary">Blog Title</label>
-				<textarea class="form-control" id="blogTitle" name="blogTitle"rows="3">%=blog.blogTitle%>></textarea>
+				<textarea class="form-control" id="blogTitle" name="blogTitle"rows="3"><%=blog.blogTitle%></textarea>
 				<label for="blogText" class="text-primary">Blog Text</label>
 				<textarea class="form-control" id="blogText" name="blogText" rows="3"><%=blog.blogText%></textarea>
 			</div>
