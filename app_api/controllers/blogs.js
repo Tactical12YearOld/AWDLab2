@@ -103,8 +103,10 @@ module.exports.blogEdit = function(req, res){
       );
 };
 module.exports.blogDelete = function(req, res){
-    var blogid = req.params.blogid;
+  console.log("ENTERING API CONRTOLLER BLOG DELETE");  
+  var blogid = req.params.blogid;
     if (blogid) {
+      console.log("null check true starting findandRemove");
       blogModel
         .findByIdAndRemove(blogid)
         .exec(
