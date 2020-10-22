@@ -95,7 +95,7 @@ module.exports.doBlogAdd = function(req, res){
       requestOptions,
       function(err, response, body) {
           console.log("Render list page is next");
-          renderListpage(req,res,response);
+          res.redirect('/blog-list/');
       }
     );
 };
