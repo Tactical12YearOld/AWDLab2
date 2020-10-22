@@ -55,7 +55,8 @@ module.exports.blogReadOne = function(req, res){
     }
 };
 module.exports.blogAdd = function(req, res){
-    console.log(req.body);
+  console.log("creating db entry API");
+  console.log(req.body);
     blogModel.create({
         blogTitle: req.body.blogTitle,
         blogText: req.body.blogText,
