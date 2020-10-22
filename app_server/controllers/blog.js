@@ -97,7 +97,7 @@ module.exports.doBlogAdd = function(req, res){
       requestOptions,
       function(err, response, body) {
           console.log("Hello from first if in doBlogAdd");
-          renderListPage(req, res, body);
+          renderAddPage(req, res, body);
       }
     );
 };
@@ -118,7 +118,10 @@ request(
   );
 };
 var renderAddPage = function(req, res, responseBody){
-  res.render('blogAdd');
+  res.render('blogAdd', {
+    title: "Add a blog",
+    blog: responseBody
+  });
 }
 
 module.exports.blogEdit = function(req, res){
