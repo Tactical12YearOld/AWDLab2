@@ -177,7 +177,32 @@ module.exports.doBlogDelete = function(req, res){
     }
   );
 };
+
+var renderRemoveEmpty = function(req, res, responseBody){
+  res.render('removeEmpty',{
+    title: "ABOUT TO RUN REMOVE EMPTY"});
+
 module.exports.removeEmpty = function(req, res){
+  var requestOptions, path;
+  path = "/api/blogs/removeEmpty";
+  console.log("Building requests opt struct now SERVER");
+  requestOptions = {
+  url: apiOptions.server + path,
+  method: "GET",
+  json: {}
+  };
+  console.log("Sending request now SERVER");
+  request(
+    requestOptions,
+    function(err, response, body){
+      console.log("Printing body now SERVER");
+      console.log(body);
+      console.log("Rendering delete page SERVER");
+      renderRemoveEmpty(req, res, body);
+      }
+    );
+  };
+module.exports.doRemoveEmpty = function(req, res){
   var requestOptions, path;
   path = "/api/removeEmpty";
   console.log("building request opts for removeEmpty SERVER");
