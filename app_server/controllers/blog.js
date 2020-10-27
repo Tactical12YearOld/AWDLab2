@@ -92,8 +92,12 @@ module.exports.doBlogAdd = function(req, res){
     request(
       requestOptions,
       function(err, response, body) {
+        if (response.statusCode === 400 && body.name & body.name === "ValidationError") {
+          res.redirect('blogAdd?err=val')
+        }else{
           console.log("Render list page is next");
           res.redirect('/blog-list/');
+        }
       }
     );
 };
@@ -116,7 +120,8 @@ request(
 var renderAddPage = function(req, res, responseBody){
   res.render('blogAdd', {
     title: "Add a blog",
-    blog: responseBody
+    blog: responseBody,
+    error: req.query.err
   });
 }
 
@@ -124,7 +129,8 @@ var renderAddPage = function(req, res, responseBody){
 var renderEditPage = function(req, res, responseBody){
   res.render('blogEdit', {
       title: 'Blog Edit',
-      blog: responseBody
+      blog: responseBody,
+      error: req.query.err
   });
 };
 
