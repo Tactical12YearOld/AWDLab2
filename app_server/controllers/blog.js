@@ -98,8 +98,6 @@ module.exports.doBlogAdd = function(req, res){
         } 
         else if (response.statusCode === 400 && body.name & body.name === "ValidationError") {
           res.redirect('/blogAdd?err=val');
-        }else{
-          res.redirect('/blog-list/');
         }
       }
     );
