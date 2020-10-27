@@ -95,9 +95,6 @@ module.exports.doBlogAdd = function(req, res){
         if (response.statusCode === 201) {
           console.log("Render list page is next");
           res.redirect('/blog-list/');
-        } 
-        else if (response.statusCode === 400 && body.name && body.name === "ValidationError") {
-          res.redirect('/blogAdd?err=val');
         }else
           res.redirect('/blogAdd?err=val');
       }
