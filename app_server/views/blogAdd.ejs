@@ -12,6 +12,11 @@
 		<p></p>
     	<h4>Add a blog here!</h4>
     	<form action="/blogAdd" method="POST">
+			<% if (error == "val") { %>
+				<div class="alert alert-danger" role="alert">
+					All fields required, please try again
+				  </div>
+			<%}%>
 			<div class="form-group">
 				<label for="blogTitle">Blog title</label>
 				<textarea class="form-control" id="title" name="blogTitle" placeholder="Enter your blog title here"></textarea>
@@ -21,8 +26,8 @@
 				<textarea class="form-control" id="text" rows="3" name="blogText" placeholder="Start your blog here"></textarea>
 			</div>
 			<a role="button" class="btn btn-danger float-right" href="/blog-list" value="Cancel">Cancel</a>
-			<button type="submit" class="btn btn-success">Add my blog</button>
-    	</form>
+			<button type="submit" class="btn btn-success">Add my blog</button>	
+		</form>
 	</div>
 </body>
 <script src='/javascripts/jquery-3.5.1.min.js'></script>
