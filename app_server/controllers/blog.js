@@ -88,6 +88,9 @@ module.exports.doBlogAdd = function(req, res){
     json : POSTDATA
   };
   console.log(requestOptions.json);
+  if(!POSTDATA.blogTitle || !POSTDATA.blogText){
+    res.redirect('/blogAdd?err=val');
+  } else{
     console.log("Sending request");
     request(
       requestOptions,
@@ -99,6 +102,7 @@ module.exports.doBlogAdd = function(req, res){
           res.redirect('/blogAdd?err=val');
       }
     );
+  }
 };
 module.exports.blogAdd = function(req,res){
 var requestOptions, path;
