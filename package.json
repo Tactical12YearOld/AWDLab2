@@ -1,24 +1,30 @@
 {
-  "name": "lab2",
-  "version": "0.0.0",
+  "name": "lab4",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
   },
   "engines": {
-    "node": "~12.18.1",
+    "node": "~0.10.13",
     "npm": "~6.14.5"
   },
   "dependencies": {
-    "@popperjs/core": "^2.4.4",
-    "bootstrap": "^4.1.1",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.3",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jquery": "^3.3.1",
+    "mongoose": "^5.10.9",
     "morgan": "~1.9.1",
+<<<<<<< HEAD
 	  "popper.js": "^2.4.4"
+=======
+    "request": "^2.88.2",
+    "serve-favicon": "^2.5.0"
+>>>>>>> ccfd3733b00a65e1accbc83ea3f58b28b169eb9e
   }
 }
