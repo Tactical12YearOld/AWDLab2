@@ -149,7 +149,18 @@ app.controller('DeleteController', [ '$http', '$routerParams', '$state', functio
         .error(function (e) {
             vm.message = "Could not delete blog given this " + vm.id + " ID";
         });
-    vm.sumbit = function() {}
+    vm.sumbit = function() {
+        var data = {};
+        deleteBlog($http, vm.id)
+            .success(function(data) {
+                vm.message = "Blog data DELETED. It's gone; never coming back.";
+                $state.go('blog-list');
+            })
+            .error(function() {
+                vm.message = "Could not delete this " + vm.id + " pesky blog!";
+            });
+    }
+    
     vm.cancel = function() {
         $state.go('blog-list');
     }
