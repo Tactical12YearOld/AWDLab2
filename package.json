@@ -1,5 +1,5 @@
 {
-  "name": "lab4",
+  "name": "lab5",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,6 +10,7 @@
     "npm": "~6.14.5"
   },
   "dependencies": {
+    "angular": "^1.8.0",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.5.3",
     "cookie-parser": "~1.4.4",
@@ -21,6 +22,7 @@
     "mongoose": "^5.10.9",
     "morgan": "~1.9.1",
     "request": "^2.88.2",
+    "require": "^2.4.20",
     "serve-favicon": "^2.5.0"
   }
 }
