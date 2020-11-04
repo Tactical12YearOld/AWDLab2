@@ -6,7 +6,7 @@ var logger = require('morgan');
 require('./app_api/models/db');
 
 
-var routes = require('./app_client/index');
+var routes = require('./app_client/bloggerApp');
 var routesApi = require('./app_api/routes/index');
 var users = require('./app_server/routes/users');
 
