@@ -21,12 +21,9 @@
     "jquery": "^3.3.1",
     "mongoose": "^5.10.9",
     "morgan": "~1.9.1",
-<<<<<<< HEAD
-	  "popper.js": "^2.4.4"
-=======
+    "popper.js": "^2.4.4"
     "request": "^2.88.2",
     "require": "^2.4.20",
     "serve-favicon": "^2.5.0"
->>>>>>> ccfd3733b00a65e1accbc83ea3f58b28b169eb9e
   }
 }
