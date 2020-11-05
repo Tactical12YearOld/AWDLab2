@@ -1,5 +1,5 @@
 
-var app = angular.module('bloggerApp', []);
+var app = angular.module('bloggerApp', ['ngRoute']);
 
 /* ROUTER PROVIDER */
 app.config(function($routeProvider) {
