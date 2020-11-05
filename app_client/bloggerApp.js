@@ -44,7 +44,7 @@ app.config(function($stateProvider){
 
 /* REST WEB API FUNCTIONS */
 function getAllBlogs($http) {
-    return $http.get('/api/blogs');
+    return $http.get('/api/blogs/');
 }
 
 function getBlogsById($http, id) {
