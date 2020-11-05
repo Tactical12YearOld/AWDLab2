@@ -1,8 +1,8 @@
 
-var bloggerApp = angular.module('bloggerApp', []);
+var app = angular.module('bloggerApp', []);
 
 /* ROUTER PROVIDER */
-bloggerApp.config(function($routeProvider) {
+app.config(function($routeProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'pages/home.html',
@@ -33,7 +33,7 @@ bloggerApp.config(function($routeProvider) {
 });
 
 /* STATE PROVIDER */
-bloggerApp.config(function($stateProvider){
+app.config(function($stateProvider){
     $stateProvider
         .state('blog-list', {
             url: '/blog-list',
@@ -64,13 +64,13 @@ function deleteBlog($http, id) {
 }
 
 /* CONTROLLERS */
-bloggerApp.controller('HomeController', function HomeController() {
+app.controller('HomeController', function HomeController() {
     var vm = this;
     vm.title = "Ben Schaeffer's Blog";
     vm.message = "Welcome to my blog!!!";
 });
 
-bloggerApp.controller('ListController', function ListController($http) {
+app.controller('ListController', function ListController($http) {
     var vm = this;
     vm.title = "Blog List";
 
@@ -84,7 +84,7 @@ bloggerApp.controller('ListController', function ListController($http) {
         });
 });
 
-bloggerApp.contorller('AddController', [ '$http', '$routeParams', '$state', function AddController($http, $routeParams, $state) {
+app.contorller('AddController', [ '$http', '$routeParams', '$state', function AddController($http, $routeParams, $state) {
     var vm = this;
     vm.blog = {};
     vm.title = "Blog Add";
@@ -104,7 +104,7 @@ bloggerApp.contorller('AddController', [ '$http', '$routeParams', '$state', func
     }
 }]);
 
-bloggerApp.controller('EditController', [ '$http', '$routeParams', '$state', function EditController($http, $routeParams, $state) {
+app.controller('EditController', [ '$http', '$routeParams', '$state', function EditController($http, $routeParams, $state) {
     var vm = this;
     vm.blog = {};
     vm.id = $routeParams.id;
@@ -136,7 +136,7 @@ bloggerApp.controller('EditController', [ '$http', '$routeParams', '$state', fun
     }
 }]);
 
-bloggerApp.controller('DeleteController', [ '$http', '$routerParams', '$state', function DeleteController($http, $routerParams, $state) {
+app.controller('DeleteController', [ '$http', '$routerParams', '$state', function DeleteController($http, $routerParams, $state) {
     var vm = this;
     vm.blog = {};
     vm.id = $routeParams.id;
