@@ -6,9 +6,9 @@ var logger = require('morgan');
 require('./app_api/models/db');
 
 
-var routes = require('./app_client/bloggerApp');
+
 var routesApi = require('./app_api/routes/index');
-var users = require('./app_server/routes/users');
+
 
 var app = express();
 
@@ -25,10 +25,9 @@ app.use(express.static(path.join(__dirname, 'app_client')));
 
 app.use('/', routes);
 app.use('/api', routesApi);
-app.use(function(req, res){
+app.use(function(req, res) {
   res.sendFile(path.join(__dirname, 'app_client', 'index.html'));
 });
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
