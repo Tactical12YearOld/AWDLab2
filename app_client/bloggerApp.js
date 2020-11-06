@@ -4,27 +4,27 @@ var app = angular.module('bloggerApp', ['ngRoute']);
 /* ROUTER PROVIDER */
 app.config(function($routeProvider) {
     $routeProvider
-        .when('#/', {
+        .when('/#/', {
             templateUrl: 'pages/home.html',
             controller: 'HomeController',
             controllerAs: 'vm'
                     })
-        .when('#/blog-list', {
+        .when('/#/blog-list', {
             templateUrl: 'pages/blog-list.html',
             contorller: 'ListController',
             conrollerAs: 'vm'
                     })
-        .when('#/blogAdd', {
+        .when('/#/blogAdd', {
             templateUrl: 'pages/blogAdd.html',
             controller: 'AddController',
             controllerAs: 'vm'
                     })
-        .when('#/blogEdit/:id', {
+        .when('/#/blogEdit/:id', {
             templateUrl: 'pages/blogEdit.html',
             controller: 'EditController',
             controllerAs: 'vm'
                     })
-        .when('#/blogDelete/:id', {
+        .when('/#/blogDelete/:id', {
             templateUrl: 'pages/blogDelete.html',
             controller: 'DeleteController',
             controllerAs: 'vm'
@@ -36,7 +36,7 @@ app.config(function($routeProvider) {
 app.config(function($stateProvider){
     $stateProvider
         .state('blog-list', {
-            url: '/blog-list',
+            url: '/#/blog-list',
             templateUrl: 'pages/blog-list.html',
             controller : 'ListController'
         });
