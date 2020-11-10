@@ -63,6 +63,7 @@ app.controller('HomeController', function HomeController() {
     var vm = this;
     vm.title = "Ben Schaeffer's Blog";
     vm.message = "Welcome to my blog!!!";
+    console.log("leaving home controller");
 });
 /*
 app.controller('ListController', function ListController($http) {
