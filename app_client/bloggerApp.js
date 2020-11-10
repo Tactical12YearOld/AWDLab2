@@ -74,18 +74,18 @@ app.controller('HomeController', function HomeController() {
 
 app.controller('ListController', function ListController($http) {
    console.log("im in the list controller.");
-
-   /* var vm = this;
+    var vm = this;
     vm.title = "Blog List";
 
     getAllBlogs($http)
-        .success(function(data) {
+        .then(
+        function(data) {
             vm.blogs = data;
             vm.message = "Blog data found!";
-        })
-        .error(function (e) {
+        },
+        function (e) {
             vm.message = "Could not get list of blogs :(";
-        });*/
+        });
 });
 /*
 app.controller('AddController', [ '$http', '$routeParams', '$state', function AddController($http, $routeParams, $state) {
