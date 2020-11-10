@@ -33,7 +33,7 @@ app.config(function($routeProvider) {
         .otherwise({redirectTo: '#/'});
 });
 
-/* STATE PROVIDER */
+/* STATE PROVIDER 
 app.config(function($stateProvider){
     $stateProvider
         .state('blog-list', {
@@ -41,7 +41,7 @@ app.config(function($stateProvider){
             templateUrl: 'pages/blog-list.html',
             controller : 'ListController'
         });
-});
+});*/
 
 /* REST WEB API FUNCTIONS */
 function getAllBlogs($http) {
