@@ -32,7 +32,7 @@ app.config(function($routeProvider) {
             controllerAs: 'vm'
                     })
         
-       // .otherwise({redirectTo: '/'});
+        .otherwise({redirectTo: '/'});
         
 });
 
