@@ -84,7 +84,7 @@ app.controller('ListController', function ListController($http) {
         });
 });
 
-app.contorller('AddController', [ '$http', '$routeParams', '$state', function AddController($http, $routeParams, $state) {
+app.controller('AddController', [ '$http', '$routeParams', '$state', function AddController($http, $routeParams, $state) {
     var vm = this;
     vm.blog = {};
     vm.title = "Blog Add";
