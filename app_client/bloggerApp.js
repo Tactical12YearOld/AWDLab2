@@ -77,7 +77,7 @@ app.controller('ListController', function ListController($http) {
             vm.message = "Could not get list of blogs :(";
         });
 });
-/*
+
 app.controller('AddController', [ '$http', '$routeParams', '$state', function AddController($http, $routeParams, $state) {
     var vm = this;
     vm.blog = {};
@@ -88,13 +88,15 @@ app.controller('AddController', [ '$http', '$routeParams', '$state', function Ad
         data.blogText = userForm.blogText.value;
 
         addBlog($http, data)
-            .success(function(data) {
+            .then(
+            function (data) {
                 vm.message = "Blog data added ;^)";
                 $state.go('blog-list');
-            })
-            .error(function (e) {
-                vm.message = "Could not add blog " + userForm.blogTitle.text + " " + userForm.blogText.text;
-            });
+            }),
+            function (e) {
+                vm.message = "ERROR blog not added :^( " + userForm.blogTitle.text + " " + userForm.blogText.text;
+            };    
+        
     }
 }]);
 
@@ -105,13 +107,14 @@ app.controller('EditController', [ '$http', '$routeParams', '$state', function E
     vm.title = "Edit Controller";
 
     getBlogsById($http, vm.id)
-        .success(function(data) {
-            vm.blog = data;
-            vm.message = "Blog data found";
-        })
-        .error(function (e) {
-            vm.message = "Could not get blog with id of " + vm.id;
-        });
+        .then(
+            function (data) {
+                vm.blog = data;
+                vm.message = "Blog data found bb!!"
+            }),
+            function (e) {
+                vm.message = "ERROR BlogID: " + vm.id + "not found";
+            };    
 
     vm.sumbit = function() {
         var data = vm.blog;
@@ -119,14 +122,15 @@ app.controller('EditController', [ '$http', '$routeParams', '$state', function E
         data.blogText = userForm.blogText.value;
         
         updateBlogById($http, vm.id, data)
-            .success(function(data) {
-                vm.message = "Blog data updated";
-                $state.go('blog-list');
-            })
-            .error(function (e) {
-                vm.message = "Could not update blog with that " + vm.id + " id and this " + 
-                userForm.blogTitle.text + " title which states " + userForm.blogText.text;
-            });
+            .then(
+                function (data) {
+                    vm.message = "Blog data updated";
+                    $state.go('blog-list');
+                }),
+                function (e) {
+                    vm.message = "Could not update blog with that " + vm.id + " id and this " + 
+                    userForm.blogTitle.text + " title which states " + userForm.blogText.text;
+                };      
     }
 }]);
 
@@ -137,26 +141,28 @@ app.controller('DeleteController', [ '$http', '$routerParams', '$state', functio
     vm.title = "Blog Delete";
 
     getBlogsById($http, vm.id)
-        .success(function(data) {
+    .then(
+        function (data) {
             vm.blog = data;
-            vm.message = "Blog data found";
-        })
-        .error(function (e) {
-            vm.message = "Could not delete blog given this " + vm.id + " ID";
-        });
-    vm.sumbit = function() {
+            vm.message = "Blog data found bb!!"
+        }),
+        function (e) {
+            vm.message = "ERROR BlogID: " + vm.id + "not found";
+        };
+    vm.sumbit = function(data) {
         var data = {};
         deleteBlog($http, vm.id)
-            .success(function(data) {
-                vm.message = "Blog data DELETED. It's gone; never coming back.";
-                $state.go('blog-list');
-            })
-            .error(function() {
-                vm.message = "Could not delete this " + vm.id + " pesky blog!";
-            });
+            .then(
+                function (data) {
+                    vm.message = "Blog data DELETED. It's gone; never coming back.";
+                    $state.go('blog-list');
+                }),
+                function (e) {
+                    vm.message = "Could not delete this " + vm.id + " pesky blog!";
+                };
     }
     
     vm.cancel = function() {
         $state.go('blog-list');
     }
-}]);*/
+}]);
