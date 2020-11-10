@@ -1,5 +1,5 @@
 
-var app = angular.module('bloggerApp', ['ngRoute', 'ui.router']);
+var app = angular.module('bloggerApp', ['ngRoute']);
 
 /* ROUTER PROVIDER */
 app.config(function($routeProvider) {
@@ -14,7 +14,8 @@ app.config(function($routeProvider) {
             contorller: 'ListController',
             conrollerAs: 'vm'
                     })
-        .when('/blogAdd', {
+       /*
+                    .when('/blogAdd', {
             templateUrl: 'pages/blogAdd.html',
             controller: 'AddController',
             controllerAs: 'vm'
@@ -28,7 +29,7 @@ app.config(function($routeProvider) {
             templateUrl: 'pages/blogDelete.html',
             controller: 'DeleteController',
             controllerAs: 'vm'
-                    })
+                    })*/
         .otherwise({redirectTo: '#/'});
 });
 
@@ -65,13 +66,16 @@ function deleteBlog($http, id) {
 
 /* CONTROLLERS */
 app.controller('HomeController', function HomeController() {
+   console.log("im in the home controller.");
     var vm = this;
     vm.title = "Ben Schaeffer's Blog";
     vm.message = "Welcome to my blog!!!";
 });
 
 app.controller('ListController', function ListController($http) {
-    var vm = this;
+   console.log("im in the list controller.");
+
+   /* var vm = this;
     vm.title = "Blog List";
 
     getAllBlogs($http)
@@ -81,9 +85,9 @@ app.controller('ListController', function ListController($http) {
         })
         .error(function (e) {
             vm.message = "Could not get list of blogs :(";
-        });
+        });*/
 });
-
+/*
 app.controller('AddController', [ '$http', '$routeParams', '$state', function AddController($http, $routeParams, $state) {
     var vm = this;
     vm.blog = {};
@@ -165,4 +169,4 @@ app.controller('DeleteController', [ '$http', '$routerParams', '$state', functio
     vm.cancel = function() {
         $state.go('blog-list');
     }
-}]);
+}]);*/
