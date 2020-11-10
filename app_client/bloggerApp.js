@@ -30,18 +30,8 @@ app.config(function($routeProvider) {
             controller: 'DeleteController',
             controllerAs: 'vm'
                     })*/
-        .otherwise({redirectTo: '#/'});
+        .otherwise({redirectTo: '/'});
 });
-
-/* STATE PROVIDER 
-app.config(function($stateProvider){
-    $stateProvider
-        .state('blog-list', {
-            url: '/blog-list',
-            templateUrl: 'pages/blog-list.html',
-            controller : 'ListController'
-        });
-});*/
 
 /* REST WEB API FUNCTIONS */
 function getAllBlogs($http) {
