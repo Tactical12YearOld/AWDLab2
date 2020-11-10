@@ -9,7 +9,7 @@ app.config(function($routeProvider) {
             controller: 'HomeController',
             controllerAs: 'vm'
                     })
-        /*
+        
         .when('/blog-list', {
             templateUrl: 'pages/blog-list.html',
             contorller: 'ListController',
@@ -31,8 +31,8 @@ app.config(function($routeProvider) {
             controller: 'DeleteController',
             controllerAs: 'vm'
                     })
-        */
-        .otherwise({redirectTo: '/'});
+        
+       // .otherwise({redirectTo: '/'});
         
 });
 
@@ -65,7 +65,7 @@ app.controller('HomeController', function HomeController() {
     vm.message = "Welcome to my blog!!!";
     console.log("leaving home controller");
 });
-/*
+
 app.controller('ListController', function ListController($http) {
    console.log("im in the list controller.");
     var vm = this;
@@ -168,4 +168,4 @@ app.controller('DeleteController', [ '$http', '$routerParams', '$state', functio
     vm.cancel = function() {
         $state.go('blog-list');
     }
-}]);*/
+}]);
