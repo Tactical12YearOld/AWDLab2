@@ -14,7 +14,7 @@ app.config(function($routeProvider) {
             contorller: 'ListController',
             conrollerAs: 'vm'
                     })
-       /*
+       
                     .when('/blogAdd', {
             templateUrl: 'pages/blogAdd.html',
             controller: 'AddController',
@@ -29,7 +29,7 @@ app.config(function($routeProvider) {
             templateUrl: 'pages/blogDelete.html',
             controller: 'DeleteController',
             controllerAs: 'vm'
-                    })*/
+                    })
         .otherwise({redirectTo: '/'});
 });
 
@@ -161,7 +161,6 @@ app.controller('DeleteController', [ '$http', '$routerParams', '$state', functio
                     vm.message = "Could not delete this " + vm.id + " pesky blog!";
                 };
     }
-    
     vm.cancel = function() {
         $state.go('blog-list');
     }
