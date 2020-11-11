@@ -82,7 +82,7 @@ app.controller('ListController', function ListController($http) {
         });
 });
 
-app.controller('AddController', [ '$http', '$routeParams', '$state', function AddController($http, $routeParams, $state) {
+app.controller('AddController', [ '$http', '$routeParams', '$state', function AddController($http, $routeParams) {
     var vm = this;
     vm.blog = {};
     vm.title = "Blog Add";
@@ -104,7 +104,7 @@ app.controller('AddController', [ '$http', '$routeParams', '$state', function Ad
     }
 }]);
 
-app.controller('EditController', [ '$http', '$routeParams', '$state', function EditController($http, $routeParams, $state) {
+app.controller('EditController', [ '$http', '$routeParams', '$state', function EditController($http, $routeParams) {
     var vm = this;
     vm.blog = {};
     vm.id = $routeParams.id;
@@ -138,7 +138,7 @@ app.controller('EditController', [ '$http', '$routeParams', '$state', function E
     }
 }]);
 
-app.controller('DeleteController', [ '$http', '$routerParams', '$state', function DeleteController($http, $routerParams, $state) {
+app.controller('DeleteController', [ '$http', '$routerParams', '$state', function DeleteController($http, $routerParams) {
     var vm = this;
     vm.blog = {};
     vm.id = $routeParams.id;
