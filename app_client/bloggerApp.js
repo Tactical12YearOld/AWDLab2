@@ -71,7 +71,7 @@ app.controller('ListController', function ListController($http) {
     var vm = this;
     vm.title = "Blog List";
 
-    getAllBlogs($http)
+    getAllBlogs($http, data)
         .then(
         function(data) {
             vm.blogs = data;
@@ -86,7 +86,7 @@ app.controller('AddController', [ '$http', '$routeParams', '$state', function Ad
     var vm = this;
     vm.blog = {};
     vm.title = "Blog Add";
-    vm.sumbit = function() {
+    vm.submit = function() {
         var data = vm.blog;
         data.blogTitle = userForm.blogTitle.value;
         data.blogText = userForm.blogText.value;
