@@ -58,7 +58,7 @@ function deleteBlog($http, id) {
 }
 
 /* CONTROLLERS */
-app.controller('HomeController', function HomeController() {
+app.angular.module('bloggerApp', ['ngRoute']).controller('HomeController', function HomeController() {
    console.log("im in the home controller.");
     var vm = this;
     vm.title = "Ben Schaeffer's Blog";
