@@ -4,7 +4,7 @@ var app = angular.module('bloggerApp', ['ngRoute']);
 /* ROUTER PROVIDER */
 app.config(function($routeProvider) {
     $routeProvider
-        .when('#!/', {
+        .when('/', {
             templateUrl: 'pages/home.html',
             controller: 'HomeController',
             controllerAs: 'vm'
