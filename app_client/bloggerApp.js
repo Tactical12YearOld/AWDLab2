@@ -71,7 +71,7 @@ app.controller('ListController', function ListController($http) {
     var vm = this;
     vm.title = "Blog List";
 
-    getAllBlogs($http, data)
+    getAllBlogs($http)
         .then(
         function(data) {
             vm.blogs = data;
