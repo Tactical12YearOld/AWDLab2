@@ -70,7 +70,7 @@ app.controller('ListController', function ListController($http) {
    console.log("im in the list controller.");
     var vm = this;
     vm.title = "Blog List";
-
+/*
     getAllBlogs($http)
         .then(
         function(data) {
@@ -79,7 +79,8 @@ app.controller('ListController', function ListController($http) {
         },
         function (e) {
             vm.message = "Could not get list of blogs :(";
-        });
+        });*/
+    console.log("leaving list controller");
 });
 
 app.controller('AddController', [ '$http', '$routeParams', '$state', function AddController($http, $routeParams) {
