@@ -83,6 +83,7 @@ app.controller('ListController', function ListController($http) {
 });
 
 app.controller('AddController', [ '$http', '$routeParams', '$state', function AddController($http, $routeParams) {
+    console.log("im in the add controller");
     var vm = this;
     vm.blog = {};
     vm.title = "Blog Add";
@@ -102,6 +103,7 @@ app.controller('AddController', [ '$http', '$routeParams', '$state', function Ad
             };    
         
     }
+    console.log("im leaving the add controller");
 }]);
 
 app.controller('EditController', [ '$http', '$routeParams', '$state', function EditController($http, $routeParams) {
