@@ -68,9 +68,9 @@ app.controller('HomeController', function HomeController() {
 
 app.controller('ListController', [ '$http', function ListController($http) {
    console.log("im in the list controller.");
+   var vm = this;
    vm.title = "Ben Schaeffer's Blog";
    vm.message = "Welcome to my blog!!!";
-   var vm = this;
     vm.title = "Blog List";
     getAllBlogs($http)
         .then(
