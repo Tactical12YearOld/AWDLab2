@@ -5,7 +5,7 @@ var app = angular.module('bloggerApp', ['ngRoute']);
 app.config(function($routeProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'pages/home.html',
+            templateUrl: 'pages/index.html',
             controller: 'HomeController',
             controllerAs: 'vm'
                     })
@@ -75,7 +75,7 @@ app.controller('ListController', [ '$http', function ListController($http) {
         function(data) {
             console.log(data);
             vm.blogs = data;
-            vm.message = "Blog data found!";
+            console.log("Blog data found!");
         },
         function (e) {
             console.log("Could not get list of blogs :(");
