@@ -66,9 +66,10 @@ app.controller('HomeController', function HomeController() {
     console.log("leaving home controller");
 });
 
-app.controller('ListController', function ListController($http) {
+app.controller('ListController', [ '$http', function ListController($http) {
    console.log("im in the list controller.");
-    var vm = this;
+   console.log("this is what $http is:" + $http); 
+   var vm = this;
     vm.title = "Blog List";
     getAllBlogs($http)
         .then(
@@ -80,7 +81,7 @@ app.controller('ListController', function ListController($http) {
             vm.message = "Could not get list of blogs :(";
         });
     console.log("leaving list controller");
-});
+}]);
 
 app.controller('AddController', [ '$http', '$routeParams', function AddController($http, $routeParams) {
     console.log("im in the add controller");
