@@ -26,7 +26,12 @@
           
         <script type="text/ng-template" id="pages/blogList.html">
             <p></p>
-            <div ng-repeat="blog in vm.blogs">
+            <ul class="card">
+                <li class="card-body" ng-repeat="blog in blogs">
+                  {{blog.blogTitle}} is {{blog.blogText}} years old.
+                </li>
+              </ul>
+            <!--<div ng-repeat="blog in vm.blogs">
                 <div class="card border-primary" style="width: 50%">
                     <div class="card-header">
                     </div>
@@ -49,7 +54,7 @@
                     </div>
                 </div>
                 <p></p>
-            </div>
+            <!--</div>-->
         </script>
 
         <script type="text/ng-template" id="pages/blogAdd.html">
