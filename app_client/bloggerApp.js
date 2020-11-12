@@ -70,7 +70,7 @@ app.controller('ListController', [ '$http', function ListController($http) {
    console.log("im in the list controller.");
    var vm = this;
     vm.title = "Blog List";
-    getAllBlogs($http, data)
+    getAllBlogs($http)
         .then(
         function(data) {
             vm.blogs = data;
