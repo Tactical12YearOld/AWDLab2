@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="/public/bootstrap/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="/public/stylesheets/style.css" />
     <link rel="stylesheet" href="/public/fontawesome/css/all.css" />
-    <script src="/bloggerApp.js"></script>
     <title>{{vm.title}}</title>
     </head>
     <body>
@@ -27,6 +26,8 @@
           
         <script type="text/ng-template" id="pages/blogList.html">
             <p></p>
+            <h4>{{vm.title}}</h4>
+            <h5>{{vm.message}}</h5>
             <div ng-repeat="blog in vm.blogs">
                 <div class="card border-primary" style="width: 50%">
                     <div class="card-header">
@@ -100,5 +101,6 @@
         </script>
         
         <div ng-view>
+            <script src="/bloggerApp.js"></script>
     </body>
 </html>

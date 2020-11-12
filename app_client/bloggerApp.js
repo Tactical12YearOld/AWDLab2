@@ -5,7 +5,7 @@ var app = angular.module('bloggerApp', ['ngRoute']);
 app.config(function($routeProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'pages/index.html',
+            templateUrl: 'pages/home.html',
             controller: 'HomeController',
             controllerAs: 'vm'
                     })
@@ -68,6 +68,8 @@ app.controller('HomeController', function HomeController() {
 
 app.controller('ListController', [ '$http', function ListController($http) {
    console.log("im in the list controller.");
+   vm.title = "Ben Schaeffer's Blog";
+   vm.message = "Welcome to my blog!!!";
    var vm = this;
     vm.title = "Blog List";
     getAllBlogs($http)
