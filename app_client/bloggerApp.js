@@ -39,23 +39,23 @@ app.config(function($routeProvider) {
 /* REST WEB API FUNCTIONS */
 function getAllBlogs($http) {
     return $http.get('/api/blogs/');
-}
+};
 
 function getBlogsById($http, id) {
     return $http.get('api/blogs/' + id);
-}
+};
 
 function updateBlogById($http, id, data) {
     return $http.put('api/blogs/' + id, data);
-}
+};
 
 function addBlog($http, data) {
     return $http.post('api/blogs/', data);
-}
+};
 
 function deleteBlog($http, id) {
     return $http.delete('api/blogs/' + id);
-}
+};
 
 /* CONTROLLERS */
 app.controller('HomeController', function HomeController() {
