@@ -35,14 +35,6 @@ app.config(function($routeProvider) {
         .otherwise({redirectTo: '/'});
         
 });
-app.config(function($stateProvider) {
-    $stateProvider
-        .state('blogList', {
-          url: '/blogList',
-          templateUrl: 'pages/blogList.html',
-          controller : 'ListController'
-        });
-});
 
 /* REST WEB API FUNCTIONS */
 function getAllBlogs($http) {
@@ -90,7 +82,7 @@ app.controller('ListController', function ListController($http) {
     console.log("leaving list controller");
 });
 
-app.controller('AddController', [ '$http', '$routeParams', 'state', function AddController($http, $routeParams, $state) {
+app.controller('AddController', [ '$http', '$routeParams', function AddController($http, $routeParams) {
     console.log("im in the add controller");
     var vm = this;
     vm.blog = {};
@@ -114,7 +106,7 @@ app.controller('AddController', [ '$http', '$routeParams', 'state', function Add
     console.log("im leaving the add controller");
 }]);
 
-app.controller('EditController', [ '$http', '$routeParams', '$state', function EditController($http, $routeParams, $state) {
+app.controller('EditController', [ '$http', '$routeParams', function EditController($http, $routeParams) {
     var vm = this;
     vm.blog = {};
     vm.id = $routeParams.id;
@@ -148,7 +140,7 @@ app.controller('EditController', [ '$http', '$routeParams', '$state', function E
     }
 }]);
 
-app.controller('DeleteController', [ '$http', '$routerParams', '$state', function DeleteController($http, $routerParams, $state) {
+app.controller('DeleteController', [ '$http', '$routerParams', function DeleteController($http, $routerParams) {
     var vm = this;
     vm.blog = {};
     vm.id = $routeParams.id;
