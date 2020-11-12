@@ -82,7 +82,7 @@ app.controller('ListController', function ListController($http) {
     console.log("leaving list controller");
 });
 
-app.controller('AddController', [ '$http', '$routeParams', '$state', function AddController($http, $routeParams) {
+app.controller('AddController', [ '$http', '$routeParams', function AddController($http, $routeParams) {
     console.log("im in the add controller");
     var vm = this;
     vm.blog = {};
