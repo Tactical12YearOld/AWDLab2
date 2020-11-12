@@ -12,7 +12,7 @@ app.config(function($routeProvider) {
         
         .when('/blogList', {
             templateUrl: 'pages/blogList.html',
-            contorller: 'ListController',
+            controller: 'ListController',
             controllerAs: 'vm'
                     })
        
