@@ -25,12 +25,13 @@
         </script>
           
         <script type="text/ng-template" id="pages/blogList.html">
-            <!--<div ng-repeat="blog in vm.blog">-->
+            <p></p>
+            <div ng-repeat="blog in vm.blogs">
                 <div class="card border-primary" style="width: 50%">
                     <div class="card-header">
+                        <h5 class="card-title">{{blog.blogTitle}}</h5>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">{{blog.blogTitle}}</h5>
                         <h6 class="card-body">{{blog.blogText}}</h6>
                         <p ng-bind="blog.dateCreated" | date:'MM/dd/yyyy h:mm a'"></p>
                     </div>
@@ -48,7 +49,7 @@
                     </div>
                 </div>
                 <p></p>
-            <!--</div>-->
+            </div>
         </script>
 
         <script type="text/ng-template" id="pages/blogAdd.html">
