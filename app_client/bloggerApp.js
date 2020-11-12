@@ -12,7 +12,7 @@ app.config(function($routeProvider) {
         
         .when('/blogList', {
             templateUrl: 'pages/blogList.html',
-            controller: 'ListController',
+            controller: 'ListController2',
             controllerAs: 'vm'
                     })
        
@@ -86,6 +86,21 @@ app.controller('ListController', [ '$http', function ListController($http) {
     console.log("leaving list controller");
 }]);
 
+app.controller('ListController2', function ListController2($http) {
+    var vm = this;
+    vm.pageHeader = {
+        title: 'Blog List'
+    };
+    
+    getAllBlogs($http)
+      .success(function(data) {
+        vm.blogs = data;
+        vm.message = "Blog data found!";
+      })
+      .error(function (e) {
+        vm.message = "Could not get list of blogs";
+      });
+});
 app.controller('AddController', [ '$http', '$routeParams', function AddController($http) {
     console.log("im in the add controller");
     var vm = this;
