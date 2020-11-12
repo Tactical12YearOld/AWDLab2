@@ -84,7 +84,6 @@ app.controller('ListController', [ '$http', function ListController($http) {
 
 app.controller('AddController', [ '$http', '$routeParams', function AddController($http) {
     console.log("im in the add controller");
-    console.log("this is what $http is:" + $http);
     var vm = this;
     vm.blog = {};
     vm.title = "Blog Add";
