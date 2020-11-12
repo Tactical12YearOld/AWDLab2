@@ -77,6 +77,7 @@ app.controller('ListController', [ '$http', function ListController($http) {
             vm.message = "Blog data found!";
         },
         function (e) {
+            console.log("Could not get list of blogs :(");
             vm.message = "Could not get list of blogs :(";
         });
     console.log("leaving list controller");
