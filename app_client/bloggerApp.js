@@ -68,7 +68,6 @@ app.controller('HomeController', function HomeController() {
 
 app.controller('ListController', [ '$http', function ListController($http) {
    console.log("im in the list controller.");
-   console.log("this is what $http is:" + $http); 
    var vm = this;
     vm.title = "Blog List";
     getAllBlogs($http)
@@ -83,7 +82,7 @@ app.controller('ListController', [ '$http', function ListController($http) {
     console.log("leaving list controller");
 }]);
 
-app.controller('AddController', [ '$http', '$routeParams', function AddController($http, $routeParams) {
+app.controller('AddController', [ '$http', '$routeParams', function AddController($http) {
     console.log("im in the add controller");
     console.log("this is what $http is:" + $http);
     var vm = this;
@@ -142,7 +141,7 @@ app.controller('EditController', [ '$http', '$routeParams', function EditControl
     }
 }]);
 
-app.controller('DeleteController', [ '$http', '$routerParams', function DeleteController($http, $routerParams) {
+app.controller('DeleteController', [ '$http', '$routerParams', function DeleteController($http, $routeParams) {
     var vm = this;
     vm.blog = {};
     vm.id = $routeParams.id;
