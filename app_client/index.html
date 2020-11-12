@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="/public/stylesheets/style.css" />
     <link rel="stylesheet" href="/public/fontawesome/css/all.css" />
     <script src="/bloggerApp.js"></script>
+    <title>{{vm.title}}</title>
     </head>
     <body>
         <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-primary">
@@ -19,8 +20,8 @@
             </div>
         </nav>
         <script type="text/ng-template" id="pages/home.html">
-        <p></P>
-            <h4>{{vm.title}}<h4>
+        <p></p>
+            <h4>{{vm.title}}</h4>
             <h5>{{vm.message}}</h5>
         </script>
           
@@ -53,7 +54,7 @@
         </script>
 
         <script type="text/ng-template" id="pages/blogAdd.html">
-            <p></P>
+            <p></p>
                 <div class="card border-primary" style="width: 50%">
                     <form name="userForm" ng-submit="vm.submit()" ng-controller="AddController" style="padding: 20px">
                         <div class="form-group">
