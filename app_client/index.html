@@ -27,13 +27,13 @@
           
         <script type="text/ng-template" id="pages/blogList.html">
             <p></p>
-            <div ng-repeat="blog in blogs">
+            <div ng-repeat="blog in vm.blogs">
                 <div class="card border-primary" style="width: 50%">
                     <div class="card-header">
-                        <h5 class="card-title">{{blog.blogTitle}}</h5>
+                        <h5 class="card-title">{{vm.blog.blogTitle}}</h5>
                     </div>
                     <div class="card-body">
-                        <h6 class="card-body">{{blog.blogText}}</h6>
+                        <h6 class="card-body">{{vm.blog.blogText}}</h6>
                         <p ng-bind="blog.dateCreated"></p>
                     </div>
                     <div class="card-footer">
