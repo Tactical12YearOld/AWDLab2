@@ -71,12 +71,12 @@ app.controller('ListController', [ '$http', function ListController($http) {
    var vm = this;
     vm.title = "Blog List";
     getAllBlogs($http)
-        .then(
+        .then( [data, vm,
         function(data, vm) {
             console.log(data);
             vm.blogs = data;
             console.log("Blog data found!");
-        },
+        }],
         function (e) {
             console.log("Could not get list of blogs :(");
             vm.message = "Could not get list of blogs :(";
