@@ -72,7 +72,7 @@ app.controller('ListController', [ '$http', function ListController($http) {
     vm.title = "Blog List";
     getAllBlogs($http)
         .then(
-        function(data, vm) {
+        function(data) {
             console.log(data.data);
             vm.blogs = data.data;
             console.log("Blog data found!");
