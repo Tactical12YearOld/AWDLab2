@@ -166,7 +166,7 @@ app.controller('EditController', [ '$http', '$routeParams', '$state', function E
     }
 }]);
 
-app.controller('DeleteController', [ '$http', '$routerParams', function DeleteController($http, $routeParams) {
+app.controller('DeleteController', [ '$http', '$routerParams','$state', function DeleteController($http, $routeParams, $state) {
     var vm = this;
     vm.blog = {};
     vm.id = $routeParams.id;
@@ -175,7 +175,7 @@ app.controller('DeleteController', [ '$http', '$routerParams', function DeleteCo
     getBlogsById($http, vm.id)
     .then(
         function (data) {
-            vm.blog = data;
+            vm.blog = data.data;
             vm.message = "Blog data found bb!!"
         }),
         function (e) {
