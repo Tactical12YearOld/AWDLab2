@@ -38,9 +38,9 @@ app.config(function($routeProvider) {
 /* STATE PROVIDER */
 app.config(function($stateProvider) {
     $stateProvider
-        .state('blog-list', {
-          url: '/blog-list',
-          templateUrl: 'pages/blog-list.html',
+        .state('blogList', {
+          url: '/blogList',
+          templateUrl: 'pages/blogList.html',
           controller : 'ListController'
         });
 });
