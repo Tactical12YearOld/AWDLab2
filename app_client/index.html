@@ -27,13 +27,16 @@
             <p></p>
             <div ng-repeat="blog in vm.blogs">
                 <div class="card border-primary" style="width: 50%">
+                
                     <div class="card-header">
                         <h5 class="card-title">{{blog.blogTitle}}</h5>
                     </div>
+                   
                     <div class="card-body">
                         <h6 class="card-body">{{blog.blogText}}</h6>
                         <p ng-bind="blog.dateCreated"></p>
                     </div>
+                   
                     <div class="card-footer">
                         <div class="col-sm">
                             <ul class="nav justify-content-end nav-pills card-head-pills">

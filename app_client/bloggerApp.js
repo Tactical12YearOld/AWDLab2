@@ -91,7 +91,7 @@ app.controller('ListController', [ '$http', function ListController($http) {
         });
     console.log("leaving list controller");
 }]);
-
+/*
 app.controller('ListController2', function ListController2($http) {
     var vm = this;
     vm.pageHeader = {
@@ -107,6 +107,7 @@ app.controller('ListController2', function ListController2($http) {
         vm.message = "Could not get list of blogs";
       });
 });
+*/
 app.controller('AddController', [ '$http', '$routeParams', function AddController($http) {
     console.log("im in the add controller");
     var vm = this;
