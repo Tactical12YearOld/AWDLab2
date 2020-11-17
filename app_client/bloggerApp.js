@@ -122,7 +122,7 @@ app.controller('AddController', [ '$http', '$routeParams', '$state', function Ad
             .then(
             function (data) {
                 vm.message = "Blog data added ;^)";
-                $state.go('blog-list');
+                $state.go('blogList');
             }),
             function (e) {
                 vm.message = "ERROR blog not added :^( " + userForm.blogTitle.text + " " + userForm.blogText.text;
@@ -157,7 +157,7 @@ app.controller('EditController', [ '$http', '$routeParams', '$state', function E
             .then(
                 function (data) {
                     vm.message = "Blog data updated";
-                    $state.go('blog-list');
+                    $state.go('blogList');
                 }),
                 function (e) {
                     vm.message = "Could not update blog with that " + vm.id + " id and this " + 
@@ -187,13 +187,13 @@ app.controller('DeleteController', [ '$http', '$routerParams','$state', function
             .then(
                 function (data) {
                     vm.message = "Blog data DELETED. It's gone; never coming back.";
-                    $state.go('blog-list');
+                    $state.go('blogList');
                 }),
                 function (e) {
                     vm.message = "Could not delete this " + vm.id + " pesky blog!";
                 };
     }
     vm.cancel = function() {
-        $state.go('blog-list');
+        $state.go('blogList');
     }
 }]);
