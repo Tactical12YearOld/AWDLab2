@@ -108,7 +108,7 @@ app.controller('ListController2', function ListController2($http) {
       });
 });
 */
-app.controller('AddController', [ '$http', '$routeParams', function AddController($http) {
+app.controller('AddController', [ '$http', '$routeParams', '$state', function AddController($http, $routeParams, $state) {
     console.log("im in the add controller");
     var vm = this;
     vm.blog = {};
@@ -132,7 +132,7 @@ app.controller('AddController', [ '$http', '$routeParams', function AddControlle
     console.log("im leaving the add controller");
 }]);
 
-app.controller('EditController', [ '$http', '$routeParams', function EditController($http, $routeParams) {
+app.controller('EditController', [ '$http', '$routeParams', '$state', function EditController($http, $routeParams, $state) {
     var vm = this;
     vm.blog = {};
     vm.id = $routeParams.id;
